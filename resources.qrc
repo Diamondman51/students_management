@@ -1,0 +1,49 @@
+<RCC>
+  <qresource>
+    <file>images/add student.png</file>
+    <file>images/dashboard1.png</file>
+    <file>images/dashboard2.png</file>
+    <file>images/dashboardsmall1.png</file>
+    <file>images/dashboardsmall2.png</file>
+    <file>images/delete.png</file>
+    <file>images/edit.png</file>
+    <file>images/excel.png</file>
+    <file>images/finances1.png</file>
+    <file>images/finances2.png</file>
+    <file>images/finances3.png</file>
+    <file>images/finances4.png</file>
+    <file>images/financessmall1.png</file>
+    <file>images/financessmall2.png</file>
+    <file>images/institution1.png</file>
+    <file>images/institution2.png</file>
+    <file>images/institutionsmall1.png</file>
+    <file>images/institutionsmall2.png</file>
+    <file>images/logo (1).png</file>
+    <file>images/logosmall1.png</file>
+    <file>images/logosmall2.png</file>
+    <file>images/menu.png</file>
+    <file>images/pdf.png</file>
+    <file>images/profile.png</file>
+    <file>images/search.png</file>
+    <file>images/settings1.png</file>
+    <file>images/settings2.png</file>
+    <file>images/settingssmall1.png</file>
+    <file>images/settingssmall2.png</file>
+    <file>images/signout1.png</file>
+    <file>images/signout2.png</file>
+    <file>images/signoutsmall1.png</file>
+    <file>images/signoutsmall2.png</file>
+    <file>images/students1.png</file>
+    <file>images/students2.png</file>
+    <file>images/students3.png</file>
+    <file>images/students4.png</file>
+    <file>images/studentssmall1.png</file>
+    <file>images/studentssmall2.png</file>
+    <file>images/teachers1.png</file>
+    <file>images/teachers2.png</file>
+    <file>images/teachers3.png</file>
+    <file>images/teachers4.png</file>
+    <file>images/teacherssmall1.png</file>
+    <file>images/teacherssmall2.png</file>
+  </qresource>
+</RCC>
