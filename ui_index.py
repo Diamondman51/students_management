@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'indexmjvWcd.ui'
+## Form generated from reading UI file 'indexfeOuIR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -20,7 +20,6 @@ from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
     QSpacerItem, QStackedWidget, QVBoxLayout, QWidget)
 import resources_rc
 
-
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
@@ -28,13 +27,13 @@ class Ui_Form(object):
         Form.resize(1231, 880)
         Form.setMinimumSize(QSize(1231, 880))
         Form.setMaximumSize(QSize(12333, 880))
-        self.widget = QWidget(Form)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(3, -5, 1233, 881))
-        self.gridLayout = QGridLayout(self.widget)
+        self.layoutWidget = QWidget(Form)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(3, -5, 1233, 881))
+        self.gridLayout = QGridLayout(self.layoutWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.icon_only_widget = QWidget(self.widget)
+        self.icon_only_widget = QWidget(self.layoutWidget)
         self.icon_only_widget.setObjectName(u"icon_only_widget")
         self.icon_only_widget.setMinimumSize(QSize(71, 0))
         self.icon_only_widget.setMaximumSize(QSize(71, 16777215))
@@ -177,7 +176,7 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.icon_only_widget, 0, 0, 1, 1)
 
-        self.icon_text_widget = QWidget(self.widget)
+        self.icon_text_widget = QWidget(self.layoutWidget)
         self.icon_text_widget.setObjectName(u"icon_text_widget")
         self.icon_text_widget.setStyleSheet(u"QWidget {\n"
 "background-color: rgb(0, 0, 0);\n"
@@ -236,6 +235,7 @@ class Ui_Form(object):
         self.dashboard_2.setIcon(icon7)
         self.dashboard_2.setIconSize(QSize(100, 60))
         self.dashboard_2.setCheckable(True)
+        self.dashboard_2.setAutoRepeat(False)
         self.dashboard_2.setAutoExclusive(True)
 
         self.verticalLayout_7.addWidget(self.dashboard_2)
@@ -257,6 +257,7 @@ class Ui_Form(object):
         self.institution_2.setIcon(icon8)
         self.institution_2.setIconSize(QSize(95, 45))
         self.institution_2.setCheckable(True)
+        self.institution_2.setAutoRepeat(False)
         self.institution_2.setAutoExclusive(True)
 
         self.verticalLayout_7.addWidget(self.institution_2)
@@ -277,6 +278,10 @@ class Ui_Form(object):
         self.students_2.setIcon(icon9)
         self.students_2.setIconSize(QSize(200, 60))
         self.students_2.setCheckable(True)
+        self.students_2.setChecked(False)
+        self.students_2.setAutoRepeat(False)
+        self.students_2.setAutoExclusive(False)
+        self.students_2.setAutoRepeatInterval(100)
 
         self.verticalLayout_4.addWidget(self.students_2)
 
@@ -286,18 +291,18 @@ class Ui_Form(object):
         self.students_dropdown.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.students_dropdown)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.sudent_info = QPushButton(self.students_dropdown)
-        self.sudent_info.setObjectName(u"sudent_info")
-        self.sudent_info.setStyleSheet(u"QPushButton {\n"
+        self.student_info = QPushButton(self.students_dropdown)
+        self.student_info.setObjectName(u"student_info")
+        self.student_info.setStyleSheet(u"QPushButton {\n"
 "	padding-left: 20;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
 "	color: #12B29B\n"
 "}")
-        self.sudent_info.setCheckable(True)
+        self.student_info.setCheckable(True)
 
-        self.verticalLayout_2.addWidget(self.sudent_info)
+        self.verticalLayout_2.addWidget(self.student_info)
 
         self.student_pay = QPushButton(self.students_dropdown)
         self.student_pay.setObjectName(u"student_pay")
@@ -341,12 +346,17 @@ class Ui_Form(object):
         self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.teachers_2 = QPushButton(self.teachers)
         self.teachers_2.setObjectName(u"teachers_2")
+        font1 = QFont()
+        font1.setKerning(True)
+        self.teachers_2.setFont(font1)
         icon10 = QIcon()
         icon10.addFile(u":/images/teachers3.png", QSize(), QIcon.Normal, QIcon.Off)
         icon10.addFile(u":/images/teachers4.png", QSize(), QIcon.Normal, QIcon.On)
         self.teachers_2.setIcon(icon10)
         self.teachers_2.setIconSize(QSize(200, 60))
         self.teachers_2.setCheckable(True)
+        self.teachers_2.setChecked(False)
+        self.teachers_2.setAutoExclusive(False)
 
         self.verticalLayout_5.addWidget(self.teachers_2)
 
@@ -417,6 +427,8 @@ class Ui_Form(object):
         self.finance_2.setIcon(icon11)
         self.finance_2.setIconSize(QSize(200, 100))
         self.finance_2.setCheckable(True)
+        self.finance_2.setChecked(False)
+        self.finance_2.setAutoExclusive(False)
 
         self.verticalLayout_6.addWidget(self.finance_2)
 
@@ -534,7 +546,7 @@ class Ui_Form(object):
 
         self.verticalLayout_14 = QVBoxLayout()
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
-        self.header_widget = QWidget(self.widget)
+        self.header_widget = QWidget(self.layoutWidget)
         self.header_widget.setObjectName(u"header_widget")
         self.horizontalLayout_5 = QHBoxLayout(self.header_widget)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
@@ -558,19 +570,19 @@ class Ui_Form(object):
         self.verticalLayout_13.setContentsMargins(10, 25, -1, 25)
         self.label = QLabel(self.header_widget)
         self.label.setObjectName(u"label")
-        font1 = QFont()
-        font1.setPointSize(15)
-        font1.setBold(True)
-        self.label.setFont(font1)
+        font2 = QFont()
+        font2.setPointSize(15)
+        font2.setBold(True)
+        self.label.setFont(font2)
         self.label.setStyleSheet(u"")
 
         self.verticalLayout_13.addWidget(self.label)
 
         self.label_5 = QLabel(self.header_widget)
         self.label_5.setObjectName(u"label_5")
-        font2 = QFont()
-        font2.setPointSize(10)
-        self.label_5.setFont(font2)
+        font3 = QFont()
+        font3.setPointSize(10)
+        self.label_5.setFont(font3)
         self.label_5.setStyleSheet(u"color:grey;")
 
         self.verticalLayout_13.addWidget(self.label_5)
@@ -604,7 +616,7 @@ class Ui_Form(object):
         self.label_6.setObjectName(u"label_6")
         self.label_6.setMinimumSize(QSize(40, 40))
         self.label_6.setMaximumSize(QSize(40, 40))
-        self.label_6.setPixmap(QPixmap(u":/images/profile.png"))
+        self.label_6.setPixmap(QPixmap(u":/images/profile1.png"))
         self.label_6.setScaledContents(True)
 
         self.horizontalLayout_3.addWidget(self.label_6)
@@ -615,7 +627,7 @@ class Ui_Form(object):
 
         self.verticalLayout_14.addWidget(self.header_widget)
 
-        self.main_screen_widget = QWidget(self.widget)
+        self.main_screen_widget = QWidget(self.layoutWidget)
         self.main_screen_widget.setObjectName(u"main_screen_widget")
         self.main_screen_widget.setMinimumSize(QSize(920, 741))
         self.main_screen_widget.setMaximumSize(QSize(920, 741))
@@ -630,86 +642,86 @@ class Ui_Form(object):
         self.label_7 = QLabel(self.page)
         self.label_7.setObjectName(u"label_7")
         self.label_7.setGeometry(QRect(360, 300, 181, 141))
-        font3 = QFont()
-        font3.setPointSize(25)
-        self.label_7.setFont(font3)
+        font4 = QFont()
+        font4.setPointSize(25)
+        self.label_7.setFont(font4)
         self.stackedWidget.addWidget(self.page)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
         self.label_8 = QLabel(self.page_2)
         self.label_8.setObjectName(u"label_8")
         self.label_8.setGeometry(QRect(360, 300, 181, 141))
-        self.label_8.setFont(font3)
+        self.label_8.setFont(font4)
         self.stackedWidget.addWidget(self.page_2)
         self.page_3 = QWidget()
         self.page_3.setObjectName(u"page_3")
         self.label_9 = QLabel(self.page_3)
         self.label_9.setObjectName(u"label_9")
         self.label_9.setGeometry(QRect(400, 330, 181, 141))
-        self.label_9.setFont(font3)
+        self.label_9.setFont(font4)
         self.stackedWidget.addWidget(self.page_3)
         self.page_4 = QWidget()
         self.page_4.setObjectName(u"page_4")
         self.label_10 = QLabel(self.page_4)
         self.label_10.setObjectName(u"label_10")
         self.label_10.setGeometry(QRect(330, 340, 261, 141))
-        self.label_10.setFont(font3)
+        self.label_10.setFont(font4)
         self.stackedWidget.addWidget(self.page_4)
         self.page_5 = QWidget()
         self.page_5.setObjectName(u"page_5")
         self.label_11 = QLabel(self.page_5)
         self.label_11.setObjectName(u"label_11")
         self.label_11.setGeometry(QRect(320, 320, 291, 141))
-        self.label_11.setFont(font3)
+        self.label_11.setFont(font4)
         self.stackedWidget.addWidget(self.page_5)
         self.page_6 = QWidget()
         self.page_6.setObjectName(u"page_6")
         self.label_12 = QLabel(self.page_6)
         self.label_12.setObjectName(u"label_12")
         self.label_12.setGeometry(QRect(300, 340, 181, 141))
-        self.label_12.setFont(font3)
+        self.label_12.setFont(font4)
         self.stackedWidget.addWidget(self.page_6)
         self.page_7 = QWidget()
         self.page_7.setObjectName(u"page_7")
         self.label_13 = QLabel(self.page_7)
         self.label_13.setObjectName(u"label_13")
         self.label_13.setGeometry(QRect(300, 340, 231, 141))
-        self.label_13.setFont(font3)
+        self.label_13.setFont(font4)
         self.stackedWidget.addWidget(self.page_7)
         self.page_8 = QWidget()
         self.page_8.setObjectName(u"page_8")
         self.label_14 = QLabel(self.page_8)
         self.label_14.setObjectName(u"label_14")
         self.label_14.setGeometry(QRect(300, 330, 291, 141))
-        self.label_14.setFont(font3)
+        self.label_14.setFont(font4)
         self.stackedWidget.addWidget(self.page_8)
         self.page_9 = QWidget()
         self.page_9.setObjectName(u"page_9")
         self.label_15 = QLabel(self.page_9)
         self.label_15.setObjectName(u"label_15")
         self.label_15.setGeometry(QRect(300, 330, 181, 141))
-        self.label_15.setFont(font3)
+        self.label_15.setFont(font4)
         self.stackedWidget.addWidget(self.page_9)
         self.page_10 = QWidget()
         self.page_10.setObjectName(u"page_10")
         self.label_16 = QLabel(self.page_10)
         self.label_16.setObjectName(u"label_16")
         self.label_16.setGeometry(QRect(340, 340, 181, 141))
-        self.label_16.setFont(font3)
+        self.label_16.setFont(font4)
         self.stackedWidget.addWidget(self.page_10)
         self.page_11 = QWidget()
         self.page_11.setObjectName(u"page_11")
         self.label_17 = QLabel(self.page_11)
         self.label_17.setObjectName(u"label_17")
         self.label_17.setGeometry(QRect(340, 360, 271, 141))
-        self.label_17.setFont(font3)
+        self.label_17.setFont(font4)
         self.stackedWidget.addWidget(self.page_11)
         self.page_12 = QWidget()
         self.page_12.setObjectName(u"page_12")
         self.label_18 = QLabel(self.page_12)
         self.label_18.setObjectName(u"label_18")
         self.label_18.setGeometry(QRect(310, 350, 181, 141))
-        self.label_18.setFont(font3)
+        self.label_18.setFont(font4)
         self.stackedWidget.addWidget(self.page_12)
 
         self.verticalLayout_14.addWidget(self.main_screen_widget)
@@ -720,7 +732,7 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
         self.students_2.toggled.connect(self.students_dropdown.setHidden)
-        self.teachers_2.clicked["bool"].connect(self.teachers_dropdown.setHidden)
+        self.teachers_2.toggled.connect(self.teachers_dropdown.setHidden)
         self.finance_2.toggled.connect(self.finance_dropdown.setHidden)
         self.dashboard_2.toggled.connect(self.dashboard_1.setChecked)
         self.institution_2.toggled.connect(self.institution_1.setChecked)
@@ -755,7 +767,7 @@ class Ui_Form(object):
         self.dashboard_2.setText("")
         self.institution_2.setText("")
         self.students_2.setText("")
-        self.sudent_info.setText(QCoreApplication.translate("Form", u"Student Information", None))
+        self.student_info.setText(QCoreApplication.translate("Form", u"Student Information", None))
         self.student_pay.setText(QCoreApplication.translate("Form", u"Student Payments", None))
         self.student_transaction.setText(QCoreApplication.translate("Form", u"Student Transactions", None))
         self.teachers_2.setText("")

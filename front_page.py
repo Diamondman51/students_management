@@ -1,9 +1,149 @@
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtGui import QAction
+from PySide6.QtWidgets import QMainWindow, QMenu
 
 from ui_index import Ui_Form
 
 
-class Window(Ui_Form, QMainWindow):
+class MySideBar(Ui_Form, QMainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.setWindowTitle('Sidebar menu')
+
+        # set icon_only_widget hidden
+        self.icon_only_widget.setHidden(True)
+
+        # Hide dropdowns
+        self.students_dropdown.setHidden(True)
+        self.teachers_dropdown.setHidden(True)
+        self.finance_dropdown.setHidden(True)
+        self.students_2.setChecked(True)
+        self.teachers_2.setChecked(True)
+        self.finance_2.setChecked(True)
+
+        # Connect buttons to switch to different pages
+        self.dashboard_1.clicked.connect(self.switch_to_dashboard_page)
+        self.dashboard_2.clicked.connect(self.switch_to_dashboard_page)
+
+        self.institution_1.clicked.connect(self.switch_to_institution_page)
+        self.institution_2.clicked.connect(self.switch_to_institution_page)
+
+        self.student_info.clicked.connect(self.switch_to_student_info_page)
+        self.student_pay.clicked.connect(self.switch_to_student_payment_page)
+
+        self.student_transaction.clicked.connect(self.switch_to_student_transaction_page)
+        self.teacher_info.clicked.connect(self.switch_to_teacher_information_page)
+
+        self.teacher_salary.clicked.connect(self.switch_to_teacher_salaries_page)
+        self.teacher_transaction.clicked.connect(self.switch_to_teacher_transactions_page)
+
+        self.budgets.clicked.connect(self.switch_to_finance_budgets_page)
+        self.expenses.clicked.connect(self.switch_to_finance_expenses_page)
+
+        self.business_overview.clicked.connect(self.switch_to_finance_business_overview_page)
+        self.settings_1.clicked.connect(self.switch_to_settings_page)
+        self.settings_2.clicked.connect(self.switch_to_settings_page)
+
+        # Connect buttons to respective context menus
+        self.students_1.clicked.connect(self.students_context_menu)
+        self.teachers_1.clicked.connect(self.teachers_context_menu)
+        self.finance_1.clicked.connect(self.finances_context_menu)
+
+        # Methods to switch to different pages
+    def switch_to_dashboard_page(self):
+        self.stackedWidget.setCurrentIndex(0)
+
+    def switch_to_institution_page(self):
+        self.stackedWidget.setCurrentIndex(1)
+
+    def switch_to_student_info_page(self):
+        self.stackedWidget.setCurrentIndex(2)
+
+    def switch_to_student_payment_page(self):
+        self.stackedWidget.setCurrentIndex(3)
+
+    def switch_to_student_transaction_page(self):
+        self.stackedWidget.setCurrentIndex(4)
+
+    def switch_to_teacher_information_page(self):
+        self.stackedWidget.setCurrentIndex(5)
+
+    def switch_to_teacher_salaries_page(self):
+        self.stackedWidget.setCurrentIndex(6)
+
+    def switch_to_teacher_transactions_page(self):
+        self.stackedWidget.setCurrentIndex(7)
+
+    def switch_to_finance_budgets_page(self):
+        self.stackedWidget.setCurrentIndex(8)
+
+    def switch_to_finance_expenses_page(self):
+        self.stackedWidget.setCurrentIndex(9)
+
+    def switch_to_finance_business_overview_page(self):
+        self.stackedWidget.setCurrentIndex(10)
+
+    def switch_to_settings_page(self):
+        self.stackedWidget.setCurrentIndex(11)
+
+    def students_context_menu(self):
+        self.show_custom_context_menu(self.students_1,
+                                      ['Student Information', 'Student Payments', 'Student Transactions'])
+
+    def teachers_context_menu(self):
+        self.show_custom_context_menu(self.teachers_1,
+                                      ['Teacher Information', 'Teacher Salaries', 'Teacher Transactions'])
+
+    def finances_context_menu(self):
+        self.show_custom_context_menu(self.finance_1,
+                                      ['Budgets', 'Expenses', 'Business Overview'])
+
+    def show_custom_context_menu(self, button, menu_items):
+
+        menu = QMenu(self)
+
+        menu.setStyleSheet('''
+        QMenu {
+        background-color: black;
+        color: white;
+        border-radius:5
+        }
+        
+        QMenu:selected {
+        background-color:white;
+        color:black;
+        border-radius:5
+        }
+        ''')
+
+        # add actions to the menu
+        for item_text in menu_items:
+            action = QAction(item_text, self)
+            action.triggered.connect(self.handle_menu_item_click)
+            menu.addAction(action)
+
+        # Show the menu
+        menu.move(button.mapToGlobal(button.rect().topRight()))
+        menu.exec()
+
+    def handle_menu_item_click(self):
+        text = self.sender().text()
+
+        if text == 'Student Information':
+            self.switch_to_student_info_page()
+        if text == 'Student Payments':
+            self.switch_to_student_payment_page()
+        if text == 'Student Transactions':
+            self.switch_to_student_transaction_page()
+        if text == 'Teacher Information':
+            self.switch_to_teacher_information_page()
+        if text == 'Teacher Salaries':
+            self.switch_to_teacher_salaries_page()
+        if text == 'Teacher Transactions':
+            self.switch_to_teacher_transactions_page()
+        if text == 'Budgets':
+            self.switch_to_finance_budgets_page()
+        if text == 'Expenses':
+            self.switch_to_finance_expenses_page()
+        if text == 'Business Overview':
+            self.switch_to_finance_business_overview_page()

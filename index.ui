@@ -25,7 +25,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>3</x>
@@ -412,6 +412,9 @@ QPushButton:checked {
            <property name="checkable">
             <bool>true</bool>
            </property>
+           <property name="autoRepeat">
+            <bool>false</bool>
+           </property>
            <property name="autoExclusive">
             <bool>true</bool>
            </property>
@@ -446,6 +449,9 @@ QPushButton:checked {
            </property>
            <property name="checkable">
             <bool>true</bool>
+           </property>
+           <property name="autoRepeat">
+            <bool>false</bool>
            </property>
            <property name="autoExclusive">
             <bool>true</bool>
@@ -495,6 +501,18 @@ QPushButton:checked {
               <property name="checkable">
                <bool>true</bool>
               </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <property name="autoRepeat">
+               <bool>false</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>false</bool>
+              </property>
+              <property name="autoRepeatInterval">
+               <number>100</number>
+              </property>
              </widget>
             </item>
             <item>
@@ -507,7 +525,7 @@ QPushButton:checked {
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_2">
                <item>
-                <widget class="QPushButton" name="sudent_info">
+                <widget class="QPushButton" name="student_info">
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
 	padding-left: 20;
@@ -595,6 +613,11 @@ QPushButton:hover {
             </property>
             <item>
              <widget class="QPushButton" name="teachers_2">
+              <property name="font">
+               <font>
+                <kerning>true</kerning>
+               </font>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -611,6 +634,12 @@ QPushButton:hover {
               </property>
               <property name="checkable">
                <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>false</bool>
               </property>
              </widget>
             </item>
@@ -728,6 +757,12 @@ QPushButton:hover {
               </property>
               <property name="checkable">
                <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>false</bool>
               </property>
              </widget>
             </item>
@@ -1051,7 +1086,7 @@ QPushButton:checked {
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="resources.qrc">:/images/profile.png</pixmap>
+              <pixmap resource="resources.qrc">:/images/profile1.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -1354,8 +1389,6 @@ QPushButton:checked {
  </widget>
  <resources>
   <include location="resources.qrc"/>
-  <include location="resources.qrc"/>
-  <include location="resources.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -1376,7 +1409,7 @@ QPushButton:checked {
   </connection>
   <connection>
    <sender>teachers_2</sender>
-   <signal>clicked(bool)</signal>
+   <signal>toggled(bool)</signal>
    <receiver>teachers_dropdown</receiver>
    <slot>setHidden(bool)</slot>
    <hints>
@@ -1573,12 +1606,12 @@ QPushButton:checked {
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>329</x>
-     <y>51</y>
+     <x>335</x>
+     <y>45</y>
     </hint>
     <hint type="destinationlabel">
      <x>69</x>
-     <y>83</y>
+     <y>95</y>
     </hint>
    </hints>
   </connection>
