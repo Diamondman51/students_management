@@ -1,6 +1,5 @@
 <RCC>
   <qresource>
-    <file>images/profile1.png</file>
     <file>images/add student.png</file>
     <file>images/dashboard1.png</file>
     <file>images/dashboard2.png</file>
@@ -23,7 +22,9 @@
     <file>images/logosmall1.png</file>
     <file>images/logosmall2.png</file>
     <file>images/menu.png</file>
+    <file>images/pdf.png</file>
     <file>images/profile.png</file>
+    <file>images/profile1.png</file>
     <file>images/search.png</file>
     <file>images/settings1.png</file>
     <file>images/settings2.png</file>

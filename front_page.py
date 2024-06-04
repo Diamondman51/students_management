@@ -3,6 +3,10 @@ from PySide6.QtWidgets import QMainWindow, QMenu
 
 from ui_index import Ui_Form
 
+import mysql.connector
+
+import sqlite3
+
 
 class MySideBar(Ui_Form, QMainWindow):
     def __init__(self):
@@ -17,9 +21,9 @@ class MySideBar(Ui_Form, QMainWindow):
         self.students_dropdown.setHidden(True)
         self.teachers_dropdown.setHidden(True)
         self.finance_dropdown.setHidden(True)
-        self.students_2.setChecked(True)
-        self.teachers_2.setChecked(True)
-        self.finance_2.setChecked(True)
+        # self.students_2.setChecked(True)
+        # self.teachers_2.setChecked(True)
+        # self.finance_2.setChecked(True)
 
         # Connect buttons to switch to different pages
         self.dashboard_1.clicked.connect(self.switch_to_dashboard_page)
@@ -49,7 +53,11 @@ class MySideBar(Ui_Form, QMainWindow):
         self.teachers_1.clicked.connect(self.teachers_context_menu)
         self.finance_1.clicked.connect(self.finances_context_menu)
 
-        # Methods to switch to different pages
+    # connect to sqlite and create database
+        self.create_connection()
+
+    # Methods to switch to different pages
+
     def switch_to_dashboard_page(self):
         self.stackedWidget.setCurrentIndex(0)
 
@@ -106,13 +114,13 @@ class MySideBar(Ui_Form, QMainWindow):
         QMenu {
         background-color: black;
         color: white;
-        border-radius:5
+        border-radius:5;
         }
         
         QMenu:selected {
         background-color:white;
-        color:black;
-        border-radius:5
+        color:#12B298;
+        border-radius:5;;
         }
         ''')
 
@@ -147,3 +155,22 @@ class MySideBar(Ui_Form, QMainWindow):
             self.switch_to_finance_expenses_page()
         if text == 'Business Overview':
             self.switch_to_finance_business_overview_page()
+
+    # database_creation
+    def create_connection(self):
+        database_name = 'my_school.db'
+        with sqlite3.connect(database_name) as database:
+            create_students_table_query = """
+            CREATE TABLE IF NOT EXISTS students_table(
+            names TEXT,
+            student_id VARCHAR(15) PRIMARY KEY,
+            gender TEXT,
+            class TEXT,
+            birthday TEXT,
+            age INT,
+            address TEXT,
+            phone_number VARCHAR(15),
+            email VARCHAR(15)
+            );
+            """
+            database.execute(create_students_table_query)

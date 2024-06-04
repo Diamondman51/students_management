@@ -1120,7 +1120,7 @@ QPushButton:checked {
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>921</width>
+           <width>901</width>
            <height>741</height>
           </rect>
          </property>
@@ -1137,7 +1137,7 @@ QPushButton:checked {
           </size>
          </property>
          <property name="currentIndex">
-          <number>11</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="page">
           <widget class="QLabel" name="label_7">
@@ -1183,20 +1183,370 @@ QPushButton:checked {
           <widget class="QLabel" name="label_9">
            <property name="geometry">
             <rect>
-             <x>400</x>
-             <y>330</y>
-             <width>181</width>
-             <height>141</height>
+             <x>20</x>
+             <y>0</y>
+             <width>211</width>
+             <height>31</height>
             </rect>
            </property>
            <property name="font">
             <font>
              <pointsize>25</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
             <string>Student info</string>
            </property>
+          </widget>
+          <widget class="QLabel" name="label_19">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>40</y>
+             <width>561</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Welcome to the students information page</string>
+           </property>
+          </widget>
+          <widget class="QTableWidget" name="studentInfo_table">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>200</y>
+             <width>950</width>
+             <height>521</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QHeaderView::section {
+	font-weight: bold;
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
+}
+
+QTableWidget {
+	alternate-background-color: #B0BDFB;
+	background-color:#F4F9FA;
+}</string>
+           </property>
+           <property name="alternatingRowColors">
+            <bool>true</bool>
+           </property>
+           <column>
+            <property name="text">
+             <string>Name</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Student ID</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Gender</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Class</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Birthday</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Age</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Address</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Phone</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Email</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Actions</string>
+            </property>
+           </column>
+          </widget>
+          <widget class="QWidget" name="">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>70</y>
+             <width>431</width>
+             <height>43</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <widget class="QPushButton" name="addStudent_btn">
+              <property name="minimumSize">
+               <size>
+                <width>111</width>
+                <height>41</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	background-color:black;
+	color: rgb(255, 255, 255);
+	border: none;
+	border-radius: 8;
+	font-weight: bold;
+	font-size:15px;
+}</string>
+              </property>
+              <property name="text">
+               <string>Add Student</string>
+              </property>
+              <property name="icon">
+               <iconset resource="resources.qrc">
+                <normaloff>:/images/add student.png</normaloff>:/images/add student.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="excelExport_btn">
+              <property name="minimumSize">
+               <size>
+                <width>111</width>
+                <height>41</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	background-color:#34D481;
+	color: rgb(255, 255, 255);
+	border: none;
+	border-radius: 8;
+	font-weight: bold;
+	font-size:15px;
+}</string>
+              </property>
+              <property name="text">
+               <string>Export to Excel</string>
+              </property>
+              <property name="icon">
+               <iconset resource="resources.qrc">
+                <normaloff>:/images/excel.png</normaloff>:/images/excel.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pdfExport_btn">
+              <property name="minimumSize">
+               <size>
+                <width>75</width>
+                <height>41</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	background-color:#ff4e4e;
+	color: rgb(255, 255, 255);
+	border: none;
+	border-radius: 8;
+	font-weight: bold;
+	font-size:15px;
+}</string>
+              </property>
+              <property name="text">
+               <string>Export to PDF</string>
+              </property>
+              <property name="icon">
+               <iconset resource="resources.qrc">
+                <normaloff>:/images/pdf.png</normaloff>:/images/pdf.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>140</y>
+             <width>654</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <item>
+             <widget class="QComboBox" name="select_gender">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QComboBox {
+	border: 1px solid white;
+	border-radius: 8;
+	padding: 1 18 1 15;
+	color: rgb(255, 255, 255);
+	background-color: rgb(0, 0, 0);
+	height: 35;
+	font-weight: bold;
+	selection-background-color: #2980B9
+}</string>
+              </property>
+              <item>
+               <property name="text">
+                <string>SELECT GENDER</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Male</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Female</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="select_class">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QComboBox {
+	border: 1px solid white;
+	border-radius: 8;
+	padding: 1 18 1 15;
+	color: rgb(255, 255, 255);
+	background-color: rgb(0, 0, 0);
+	height: 35;
+	font-weight: bold;
+	selection-background-color: #2980B9
+}</string>
+              </property>
+              <item>
+               <property name="text">
+                <string>SELECT CLASS</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Grade 1</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Grade 2</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Grade 3</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Grade 4</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Grade 5</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Grade 6</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Grade 7</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Grade 8</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Grade 9</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Grade 10</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Grade 11</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="search_student">
+              <property name="minimumSize">
+               <size>
+                <width>340</width>
+                <height>38</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>340</width>
+                <height>38</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLineEdit {
+	padding-left:20;
+	border: 1 solid gray;
+	border-radius: 10;
+}</string>
+              </property>
+              <property name="placeholderText">
+               <string>Search Student...</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </widget>
          <widget class="QWidget" name="page_4">
