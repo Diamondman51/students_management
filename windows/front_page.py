@@ -1,16 +1,14 @@
-import psycopg2
 from PySide6.QtGui import QAction
-from PySide6.QtWidgets import QMainWindow, QMenu
+from PySide6.QtWidgets import QWidget, QMenu
+import psycopg2
+from UI_files.ui_index import Ui_Form
 
-from ui_files.ui_index import Ui_Form
 
-
-class MySideBar(Ui_Form, QMainWindow):
+class Window(QWidget, Ui_Form):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
         self.setWindowTitle('Sidebar menu')
-
         self.stackedWidget.setCurrentIndex(0)
 
         # set icon_only_widget hidden
@@ -52,10 +50,10 @@ class MySideBar(Ui_Form, QMainWindow):
         self.teachers_1.clicked.connect(self.teachers_context_menu)
         self.finance_1.clicked.connect(self.finances_context_menu)
 
-    # connect to sqlite and create database if it does not exist
+        # connect to sqlite and create database if it does not exist
         self.create_connection()
 
-    # Create students table
+        # Create students table
         self.create_students_table()
 
     # Methods to switch to different pages
@@ -113,18 +111,18 @@ class MySideBar(Ui_Form, QMainWindow):
         menu = QMenu(self)
 
         menu.setStyleSheet('''
-        QMenu {
-        background-color: black;
-        color: white;
-        border-radius:5;
-        }
-        
-        QMenu:selected {
-        background-color:white;
-        color:#12B298;
-        border-radius:5;;
-        }
-        ''')
+            QMenu {
+            background-color: black;
+            color: white;
+            border-radius:5;
+            }
+
+            QMenu:selected {
+            background-color:white;
+            color:#12B298;
+            border-radius:5;;
+            }
+            ''')
 
         # add actions to the menu
         for item_text in menu_items:
@@ -200,18 +198,18 @@ class MySideBar(Ui_Form, QMainWindow):
         # The query
 
         create_students_table_query = f"""
-            create table if not exists students_table(
-            names TEXT,
-            student_id VARCHAR(15) PRIMARY KEY,
-            gender TEXT,
-            class TEXT,
-            birthday TEXT,
-            age INT,
-            address TEXT,
-            phone_number VARCHAR(15),
-            email VARCHAR(15)
-            )
-        """
+                create table if not exists students_table(
+                names TEXT,
+                student_id VARCHAR(15) PRIMARY KEY,
+                gender TEXT,
+                class TEXT,
+                birthday TEXT,
+                age INT,
+                address TEXT,
+                phone_number VARCHAR(15),
+                email VARCHAR(15)
+                )
+            """
 
         cursor.execute(create_students_table_query)
 

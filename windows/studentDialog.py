@@ -2,10 +2,10 @@ from datetime import datetime
 from random import randint
 
 import psycopg2
-from PyQt5.QtCore import Qt
+from PySide6.QtGui import Qt
 from PySide6.QtWidgets import QDialog
 
-from ui_files.studentDialog_UI import Ui_StudentsDialog
+from UI_files.studentDialog_UI import Ui_StudentsDialog
 
 
 class StudentDialog(Ui_StudentsDialog, QDialog):
