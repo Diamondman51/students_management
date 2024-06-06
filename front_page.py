@@ -1,11 +1,8 @@
+import psycopg2
 from PySide6.QtGui import QAction
 from PySide6.QtWidgets import QMainWindow, QMenu
 
 from ui_index import Ui_Form
-
-import mysql.connector
-
-import sqlite3
 
 
 class MySideBar(Ui_Form, QMainWindow):
@@ -14,6 +11,8 @@ class MySideBar(Ui_Form, QMainWindow):
         self.setupUi(self)
         self.setWindowTitle('Sidebar menu')
 
+        self.stackedWidget.setCurrentIndex(0)
+
         # set icon_only_widget hidden
         self.icon_only_widget.setHidden(True)
 
@@ -21,9 +20,9 @@ class MySideBar(Ui_Form, QMainWindow):
         self.students_dropdown.setHidden(True)
         self.teachers_dropdown.setHidden(True)
         self.finance_dropdown.setHidden(True)
-        # self.students_2.setChecked(True)
-        # self.teachers_2.setChecked(True)
-        # self.finance_2.setChecked(True)
+        self.students_2.setChecked(True)
+        self.teachers_2.setChecked(True)
+        self.finance_2.setChecked(True)
 
         # Connect buttons to switch to different pages
         self.dashboard_1.clicked.connect(self.switch_to_dashboard_page)
@@ -53,8 +52,11 @@ class MySideBar(Ui_Form, QMainWindow):
         self.teachers_1.clicked.connect(self.teachers_context_menu)
         self.finance_1.clicked.connect(self.finances_context_menu)
 
-    # connect to sqlite and create database
+    # connect to sqlite and create database if it does not exist
         self.create_connection()
+
+    # Create students table
+        self.create_students_table()
 
     # Methods to switch to different pages
 
@@ -158,10 +160,47 @@ class MySideBar(Ui_Form, QMainWindow):
 
     # database_creation
     def create_connection(self):
-        database_name = 'my_school.db'
-        with sqlite3.connect(database_name) as database:
-            create_students_table_query = """
-            CREATE TABLE IF NOT EXISTS students_table(
+        # Establish connection
+        database = 'school management'
+        host = 'localhost'
+        user = 'postgres'
+        password = 'Zshavkatov61@'
+        port = '5432'
+
+        self.conn = psycopg2.connect(
+            database=database,
+            host=host,
+            user=user,
+            password=password,
+            port=port
+        )
+
+        # Craete a cursor to execute PostgreSQL
+
+        corsor = self.conn.cursor()
+
+        # Create the database if it does not exist
+        # corsor.execute(f'Create database IF NOT EXISTS {database}')
+        #
+        # self.conn = psycopg2.connect(
+        #     database=database,
+        #     host=host,
+        #     user=user,
+        #     password=password,
+        #     port=port
+        # )
+
+        return self.conn
+
+    # CREATE STUDENTS TABLE
+
+    def create_students_table(self):
+        cursor = self.create_connection().cursor()
+
+        # The query
+
+        create_students_table_query = f"""
+            create table if not exists students_table(
             names TEXT,
             student_id VARCHAR(15) PRIMARY KEY,
             gender TEXT,
@@ -171,6 +210,11 @@ class MySideBar(Ui_Form, QMainWindow):
             address TEXT,
             phone_number VARCHAR(15),
             email VARCHAR(15)
-            );
-            """
-            database.execute(create_students_table_query)
+            )
+        """
+
+        cursor.execute(create_students_table_query)
+
+        # Commit changes and close the connection
+        self.conn.commit()
+        self.conn.close()

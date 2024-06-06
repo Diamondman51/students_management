@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
 from random import randint
+import psycopg2
+
+# -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'studentDialogMseLhQ.ui'
+## Form generated from reading UI file 'studentDialogICyrmJ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -19,39 +23,39 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QDialog,
     QFrame, QHBoxLayout, QLabel, QLineEdit,
     QPushButton, QSizePolicy, QVBoxLayout, QWidget)
-import sqlite3
-class Ui_StudentsDialog(QDialog):
+
+class Ui_StudentsDialog(object):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.resize(548, 584)
         self.setStyleSheet(u"QDialog {\n"
-"	background-color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QLineEdit {\n"
-"	border: 1px solid grey;\n"
-"	border-radius: 6;\n"
-"	padding-left: 15px;\n"
-"	height: 35;\n"
-"}\n"
-"\n"
-"QDateEdit {\n"
-"	border: 1px solid grey;\n"
-"	border-radius: 6;\n"
-"	padding-left: 15px;\n"
-"	height: 31;\n"
-"}\n"
-"\n"
-"QComboBox {\n"
-"	border: 1px solid white;\n"
-"	border-radius: 8;\n"
-"	padding: 1 18 1 15;\n"
-"	color: rgb(255, 255, 255);\n"
-"	background-color: rgb(0, 0, 0);\n"
-"	height: 35;\n"
-"	font-weight: bold;\n"
-"	selection-background-color: #2980B9\n"
-"}")
+                           "	background-color: rgb(255, 255, 255);\n"
+                           "}\n"
+                           "\n"
+                           "QLineEdit {\n"
+                           "	border: 1px solid grey;\n"
+                           "	border-radius: 6;\n"
+                           "	padding-left: 15px;\n"
+                           "	height: 35;\n"
+                           "}\n"
+                           "\n"
+                           "QDateEdit {\n"
+                           "	border: 1px solid grey;\n"
+                           "	border-radius: 6;\n"
+                           "	padding-left: 15px;\n"
+                           "	height: 31;\n"
+                           "}\n"
+                           "\n"
+                           "QComboBox {\n"
+                           "	border: 1px solid white;\n"
+                           "	border-radius: 8;\n"
+                           "	padding: 1 18 1 15;\n"
+                           "	color: rgb(255, 255, 255);\n"
+                           "	background-color: rgb(0, 0, 0);\n"
+                           "	height: 35;\n"
+                           "	font-weight: bold;\n"
+                           "	selection-background-color: #2980B9\n"
+                           "}")
         self.line = QFrame(self)
         self.line.setObjectName(u"line")
         self.line.setGeometry(QRect(0, 60, 551, 31))
@@ -73,22 +77,22 @@ class Ui_StudentsDialog(QDialog):
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.name_LineEdit = QLabel(self.layoutWidget)
-        self.name_LineEdit.setObjectName(u"name_LineEdit")
+        self.label_2 = QLabel(self.layoutWidget)
+        self.label_2.setObjectName(u"label_2")
         font1 = QFont()
         font1.setFamilies([u"Segoe UI"])
         font1.setPointSize(12)
         font1.setBold(False)
-        self.name_LineEdit.setFont(font1)
+        self.label_2.setFont(font1)
+
+        self.verticalLayout.addWidget(self.label_2)
+
+        self.name_LineEdit = QLineEdit(self.layoutWidget)
+        self.name_LineEdit.setObjectName(u"name_LineEdit")
+        self.name_LineEdit.setMinimumSize(QSize(0, 35))
+        self.name_LineEdit.setMaximumSize(QSize(16777215, 35))
 
         self.verticalLayout.addWidget(self.name_LineEdit)
-
-        self.lineEdit = QLineEdit(self.layoutWidget)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setMinimumSize(QSize(0, 35))
-        self.lineEdit.setMaximumSize(QSize(16777215, 35))
-
-        self.verticalLayout.addWidget(self.lineEdit)
 
 
         self.verticalLayout_8.addLayout(self.verticalLayout)
@@ -161,54 +165,54 @@ class Ui_StudentsDialog(QDialog):
 
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.address_LineEdit = QLabel(self.layoutWidget)
+        self.label_3 = QLabel(self.layoutWidget)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setFont(font1)
+
+        self.verticalLayout_2.addWidget(self.label_3)
+
+        self.address_LineEdit = QLineEdit(self.layoutWidget)
         self.address_LineEdit.setObjectName(u"address_LineEdit")
-        self.address_LineEdit.setFont(font1)
+        self.address_LineEdit.setMinimumSize(QSize(0, 35))
+        self.address_LineEdit.setMaximumSize(QSize(16777215, 35))
 
         self.verticalLayout_2.addWidget(self.address_LineEdit)
-
-        self.lineEdit_2 = QLineEdit(self.layoutWidget)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setMinimumSize(QSize(0, 35))
-        self.lineEdit_2.setMaximumSize(QSize(16777215, 35))
-
-        self.verticalLayout_2.addWidget(self.lineEdit_2)
 
 
         self.verticalLayout_8.addLayout(self.verticalLayout_2)
 
         self.verticalLayout_3 = QVBoxLayout()
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.phone_LineEdit = QLabel(self.layoutWidget)
+        self.label_4 = QLabel(self.layoutWidget)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setFont(font1)
+
+        self.verticalLayout_3.addWidget(self.label_4)
+
+        self.phone_LineEdit = QLineEdit(self.layoutWidget)
         self.phone_LineEdit.setObjectName(u"phone_LineEdit")
-        self.phone_LineEdit.setFont(font1)
+        self.phone_LineEdit.setMinimumSize(QSize(0, 35))
+        self.phone_LineEdit.setMaximumSize(QSize(16777215, 35))
 
         self.verticalLayout_3.addWidget(self.phone_LineEdit)
-
-        self.lineEdit_3 = QLineEdit(self.layoutWidget)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
-        self.lineEdit_3.setMinimumSize(QSize(0, 35))
-        self.lineEdit_3.setMaximumSize(QSize(16777215, 35))
-
-        self.verticalLayout_3.addWidget(self.lineEdit_3)
 
 
         self.verticalLayout_8.addLayout(self.verticalLayout_3)
 
         self.verticalLayout_4 = QVBoxLayout()
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.email_LineEdit = QLabel(self.layoutWidget)
+        self.label_5 = QLabel(self.layoutWidget)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setFont(font1)
+
+        self.verticalLayout_4.addWidget(self.label_5)
+
+        self.email_LineEdit = QLineEdit(self.layoutWidget)
         self.email_LineEdit.setObjectName(u"email_LineEdit")
-        self.email_LineEdit.setFont(font1)
+        self.email_LineEdit.setMinimumSize(QSize(0, 35))
+        self.email_LineEdit.setMaximumSize(QSize(16777215, 35))
 
         self.verticalLayout_4.addWidget(self.email_LineEdit)
-
-        self.lineEdit_4 = QLineEdit(self.layoutWidget)
-        self.lineEdit_4.setObjectName(u"lineEdit_4")
-        self.lineEdit_4.setMinimumSize(QSize(0, 35))
-        self.lineEdit_4.setMaximumSize(QSize(16777215, 35))
-
-        self.verticalLayout_4.addWidget(self.lineEdit_4)
 
 
         self.verticalLayout_8.addLayout(self.verticalLayout_4)
@@ -254,9 +258,9 @@ class Ui_StudentsDialog(QDialog):
     # setupUi
 
     def retranslateUi(self, StudentsDialog):
-        StudentsDialog.setWindowTitle(QCoreApplication.translate("StudentsDialog", u"Student Dialog", None))
+        StudentsDialog.setWindowTitle(QCoreApplication.translate("StudentsDialog", u"Dialog", None))
         self.label.setText(QCoreApplication.translate("StudentsDialog", u"Add New Student", None))
-        self.name_LineEdit.setText(QCoreApplication.translate("StudentsDialog", u"Full Name", None))
+        self.label_2.setText(QCoreApplication.translate("StudentsDialog", u"Full Name", None))
         self.label_6.setText(QCoreApplication.translate("StudentsDialog", u"Select Gendet", None))
         self.gender_comboBox.setItemText(0, QCoreApplication.translate("StudentsDialog", u"Male", None))
         self.gender_comboBox.setItemText(1, QCoreApplication.translate("StudentsDialog", u"Female", None))
@@ -275,62 +279,134 @@ class Ui_StudentsDialog(QDialog):
         self.class_comboBox_2.setItemText(10, QCoreApplication.translate("StudentsDialog", u"Grade 11", None))
 
         self.label_8.setText(QCoreApplication.translate("StudentsDialog", u"Date of Birth", None))
-        self.address_LineEdit.setText(QCoreApplication.translate("StudentsDialog", u"Address", None))
-        self.phone_LineEdit.setText(QCoreApplication.translate("StudentsDialog", u"Phone Number", None))
-        self.email_LineEdit.setText(QCoreApplication.translate("StudentsDialog", u"Email", None))
+        self.label_3.setText(QCoreApplication.translate("StudentsDialog", u"Address", None))
+        self.label_4.setText(QCoreApplication.translate("StudentsDialog", u"Phone Number", None))
+        self.label_5.setText(QCoreApplication.translate("StudentsDialog", u"Email", None))
         self.saveStudent_btn.setText(QCoreApplication.translate("StudentsDialog", u"Add Student", None))
         self.cancel_btn.setText(QCoreApplication.translate("StudentsDialog", u"Cancel", None))
     # retranslateUi
 
 
+
+    # retranslateUi
+
     # database_creation
     def create_connection(self):
-        database_name = 'my_school.db'
-        with sqlite3.connect(database_name) as database:
-            create_students_table_query = """
-            CREATE TABLE IF NOT EXISTS students_table(
-            names TEXT,
-            student_id VARCHAR(15) PRIMARY KEY,
-            gender TEXT,
-            class TEXT,
-            birthday TEXT,
-            age INT,
-            address TEXT,
-            phone_number VARCHAR(15),
-            email VARCHAR(15)
-            );
-            """
-            database.execute(create_students_table_query)
-# INSERT NEW STUDENT
+        # Establish connection
+        database = 'school management'
+        host = 'localhost'
+        user = 'postgres'
+        password = 'Zshavkatov61@'
+        port = '5432'
+
+        self.conn = psycopg2.connect(
+            database=database,
+            host=host,
+            user=user,
+            password=password,
+            port=port
+        )
+
+        # Craete a cursor to execute PostgreSQL
+
+        corsor = self.conn.cursor()
+
+        # Create the database if it does not exist
+        corsor.execute(f'Create database if not exists {database}')
+
+        self.conn = psycopg2.connect(
+            database=database,
+            host=host,
+            user=user,
+            password=password,
+            port=port
+        )
+
+        return self.conn
+
+    # INSERT NEW STUDENT
     def insert_new_student(self):
         try:
+            cursor = self.create_connection().cursor()
             gender = self.gender_comboBox.currentText()
             student_id = self.generate_studentId(gender)
+
+            birthday = self.handleDateChange()
+
+            # Assuming birthday is a QDate object
+            birth_date = self.dob_dateEdit.date()
+            age = self.calculate_age(birth_date)
+
+            # Create list of student information
+
+            self.new_student = [
+                self.name_LineEdit.text(),
+                student_id,
+                self.gender_comboBox.currentText(),
+                self.class_comboBox_2.currentText(),
+                birthday,
+                age,
+                self.address_LineEdit.text(),
+                self.phone_LineEdit.text(),
+                self.email_LineEdit.text()
+            ]
+
+            # To put multiple rows in the PostgreSQL database
+
+            insert_student_query = '''INSERT INTO students_table (names, student_id, gender, class, birthday, age, address, phone_number, email) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)'''
+            cursor.execute(insert_student_query, self.new_student)
+            self.conn.commit()
+            self.conn.close()
 
         except:
             pass
 
     def generate_studentId(self, gender):
-        database_name = 'my_school.db'
-        with sqlite3.connect(database_name) as database:
 
+        cursor = self.create_connection().cursor()
 
-            while True:
-                if gender == 'Male':
-                    id_start_value = '24' + '/U/M'
-                else:
-                    id_start_value = '24' + '/U/F'
+        while True:
+            if gender == 'Male':
+                id_start_value = '24' + '/U/M'
+            else:
+                id_start_value = '24' + '/U/F'
 
-                random_value = self.generate_randomNumber()
-                student_id = id_start_value + random_value
+            random_value = self.generate_randomNumber()
+            student_id = id_start_value + random_value
 
-                # check if the generated student id is already in the table
-                database.execute(f'SELECT student_id FROM students_table WHERE student_id = %s, (student_id,)')
-                # existing_id = database
-
+            # check if the generated student id is already in the table
+            cursor.execute(f'SELECT student_id FROM students_table WHERE student_id = %s, (student_id,)')
+            existing_id = cursor.fetchone()
+            if not existing_id:
+                return student_id
 
     def generate_randomNumber(self):
 
         number = randint(1, 1000)
         random_number = f'{number:04d}'
         return random_number
+
+    def handleDateChange(self):
+
+        # convert QDate to a string in the format 'YYYY-MM-DD'
+        selected_date = self.dob_dateEdit.date()
+        self.date_string = selected_date.toString(Qt.ISODate)
+
+        return self.date_string
+
+    def calculate_age(self, bith_date):
+
+        # get the current date
+        current_date = datetime.now().date()
+
+        # Create a date object for the birthdate
+        bith_datetime = datetime(bith_date.year(), bith_date.month(), bith_date.day()).date()
+
+        # Calculate the difference in years
+        age = current_date.year - bith_datetime.year
+
+        # Check if the current date has occured this year
+        if (current_date.month, current_date.day) < (bith_datetime.month, bith_datetime.day):
+            age -= 1
+
+        return age
