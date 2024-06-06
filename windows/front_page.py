@@ -2,7 +2,7 @@ import psycopg2
 from PySide6.QtGui import QAction
 from PySide6.QtWidgets import QMainWindow, QMenu
 
-from ui_index import Ui_Form
+from ui_files.ui_index import Ui_Form
 
 
 class MySideBar(Ui_Form, QMainWindow):

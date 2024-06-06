@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
-from datetime import datetime
-from random import randint
-import psycopg2
-
-# -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'studentDialogICyrmJ.ui'
+## Form generated from reading UI file 'studentDialogQyDONU.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -25,43 +20,44 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QDialog,
     QPushButton, QSizePolicy, QVBoxLayout, QWidget)
 
 class Ui_StudentsDialog(object):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.resize(548, 584)
-        self.setStyleSheet(u"QDialog {\n"
-                           "	background-color: rgb(255, 255, 255);\n"
-                           "}\n"
-                           "\n"
-                           "QLineEdit {\n"
-                           "	border: 1px solid grey;\n"
-                           "	border-radius: 6;\n"
-                           "	padding-left: 15px;\n"
-                           "	height: 35;\n"
-                           "}\n"
-                           "\n"
-                           "QDateEdit {\n"
-                           "	border: 1px solid grey;\n"
-                           "	border-radius: 6;\n"
-                           "	padding-left: 15px;\n"
-                           "	height: 31;\n"
-                           "}\n"
-                           "\n"
-                           "QComboBox {\n"
-                           "	border: 1px solid white;\n"
-                           "	border-radius: 8;\n"
-                           "	padding: 1 18 1 15;\n"
-                           "	color: rgb(255, 255, 255);\n"
-                           "	background-color: rgb(0, 0, 0);\n"
-                           "	height: 35;\n"
-                           "	font-weight: bold;\n"
-                           "	selection-background-color: #2980B9\n"
-                           "}")
-        self.line = QFrame(self)
+    def setupUi(self, StudentsDialog):
+        if not StudentsDialog.objectName():
+            StudentsDialog.setObjectName(u"StudentsDialog")
+        StudentsDialog.resize(548, 584)
+        StudentsDialog.setStyleSheet(u"QDialog {\n"
+"	background-color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QLineEdit {\n"
+"	border: 1px solid grey;\n"
+"	border-radius: 6;\n"
+"	padding-left: 15px;\n"
+"	height: 35;\n"
+"}\n"
+"\n"
+"QDateEdit {\n"
+"	border: 1px solid grey;\n"
+"	border-radius: 6;\n"
+"	padding-left: 15px;\n"
+"	height: 31;\n"
+"}\n"
+"\n"
+"QComboBox {\n"
+"	border: 1px solid white;\n"
+"	border-radius: 8;\n"
+"	padding: 1 18 1 15;\n"
+"	color: rgb(255, 255, 255);\n"
+"	background-color: rgb(0, 0, 0);\n"
+"	height: 35;\n"
+"	font-weight: bold;\n"
+"	selection-background-color: #2980B9\n"
+"}")
+        self.line = QFrame(StudentsDialog)
         self.line.setObjectName(u"line")
         self.line.setGeometry(QRect(0, 60, 551, 31))
         self.line.setFrameShape(QFrame.HLine)
         self.line.setFrameShadow(QFrame.Sunken)
-        self.label = QLabel(self)
+        self.label = QLabel(StudentsDialog)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(20, 20, 281, 31))
         font = QFont()
@@ -69,7 +65,7 @@ class Ui_StudentsDialog(object):
         font.setPointSize(20)
         font.setBold(True)
         self.label.setFont(font)
-        self.layoutWidget = QWidget(self)
+        self.layoutWidget = QWidget(StudentsDialog)
         self.layoutWidget.setObjectName(u"layoutWidget")
         self.layoutWidget.setGeometry(QRect(20, 100, 511, 401))
         self.verticalLayout_8 = QVBoxLayout(self.layoutWidget)
@@ -217,7 +213,7 @@ class Ui_StudentsDialog(object):
 
         self.verticalLayout_8.addLayout(self.verticalLayout_4)
 
-        self.layoutWidget1 = QWidget(self)
+        self.layoutWidget1 = QWidget(StudentsDialog)
         self.layoutWidget1.setObjectName(u"layoutWidget1")
         self.layoutWidget1.setGeometry(QRect(300, 520, 231, 43))
         self.horizontalLayout_2 = QHBoxLayout(self.layoutWidget1)
@@ -252,9 +248,9 @@ class Ui_StudentsDialog(object):
         self.horizontalLayout_2.addWidget(self.cancel_btn)
 
 
-        self.retranslateUi(self)
+        self.retranslateUi(StudentsDialog)
 
-        QMetaObject.connectSlotsByName(self)
+        QMetaObject.connectSlotsByName(StudentsDialog)
     # setupUi
 
     def retranslateUi(self, StudentsDialog):
@@ -286,127 +282,3 @@ class Ui_StudentsDialog(object):
         self.cancel_btn.setText(QCoreApplication.translate("StudentsDialog", u"Cancel", None))
     # retranslateUi
 
-
-
-    # retranslateUi
-
-    # database_creation
-    def create_connection(self):
-        # Establish connection
-        database = 'school management'
-        host = 'localhost'
-        user = 'postgres'
-        password = 'Zshavkatov61@'
-        port = '5432'
-
-        self.conn = psycopg2.connect(
-            database=database,
-            host=host,
-            user=user,
-            password=password,
-            port=port
-        )
-
-        # Craete a cursor to execute PostgreSQL
-
-        corsor = self.conn.cursor()
-
-        # Create the database if it does not exist
-        corsor.execute(f'Create database if not exists {database}')
-
-        self.conn = psycopg2.connect(
-            database=database,
-            host=host,
-            user=user,
-            password=password,
-            port=port
-        )
-
-        return self.conn
-
-    # INSERT NEW STUDENT
-    def insert_new_student(self):
-        try:
-            cursor = self.create_connection().cursor()
-            gender = self.gender_comboBox.currentText()
-            student_id = self.generate_studentId(gender)
-
-            birthday = self.handleDateChange()
-
-            # Assuming birthday is a QDate object
-            birth_date = self.dob_dateEdit.date()
-            age = self.calculate_age(birth_date)
-
-            # Create list of student information
-
-            self.new_student = [
-                self.name_LineEdit.text(),
-                student_id,
-                self.gender_comboBox.currentText(),
-                self.class_comboBox_2.currentText(),
-                birthday,
-                age,
-                self.address_LineEdit.text(),
-                self.phone_LineEdit.text(),
-                self.email_LineEdit.text()
-            ]
-
-            # To put multiple rows in the PostgreSQL database
-
-            insert_student_query = '''INSERT INTO students_table (names, student_id, gender, class, birthday, age, address, phone_number, email) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)'''
-            cursor.execute(insert_student_query, self.new_student)
-            self.conn.commit()
-            self.conn.close()
-
-        except:
-            pass
-
-    def generate_studentId(self, gender):
-
-        cursor = self.create_connection().cursor()
-
-        while True:
-            if gender == 'Male':
-                id_start_value = '24' + '/U/M'
-            else:
-                id_start_value = '24' + '/U/F'
-
-            random_value = self.generate_randomNumber()
-            student_id = id_start_value + random_value
-
-            # check if the generated student id is already in the table
-            cursor.execute(f'SELECT student_id FROM students_table WHERE student_id = %s, (student_id,)')
-            existing_id = cursor.fetchone()
-            if not existing_id:
-                return student_id
-
-    def generate_randomNumber(self):
-
-        number = randint(1, 1000)
-        random_number = f'{number:04d}'
-        return random_number
-
-    def handleDateChange(self):
-
-        # convert QDate to a string in the format 'YYYY-MM-DD'
-        selected_date = self.dob_dateEdit.date()
-        self.date_string = selected_date.toString(Qt.ISODate)
-
-        return self.date_string
-
-    def calculate_age(self, bith_date):
-
-        # get the current date
-        current_date = datetime.now().date()
-
-        # Create a date object for the birthdate
-        bith_datetime = datetime(bith_date.year(), bith_date.month(), bith_date.day()).date()
-
-        # Calculate the difference in years
-        age = current_date.year - bith_datetime.year
-
-        # Check if the current date has occured this year
-        if (current_date.month, current_date.day) < (bith_datetime.month, bith_datetime.day):
-            age -= 1
-
-        return age
