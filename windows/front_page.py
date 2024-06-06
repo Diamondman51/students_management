@@ -7,6 +7,7 @@ from UI_files.ui_index import Ui_Form
 class Window(QWidget, Ui_Form):
     def __init__(self):
         super().__init__()
+
         self.setupUi(self)
         self.setWindowTitle('Sidebar menu')
         self.stackedWidget.setCurrentIndex(0)

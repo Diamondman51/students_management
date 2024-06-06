@@ -281,4 +281,3 @@ class Ui_StudentsDialog(object):
         self.saveStudent_btn.setText(QCoreApplication.translate("StudentsDialog", u"Add Student", None))
         self.cancel_btn.setText(QCoreApplication.translate("StudentsDialog", u"Cancel", None))
     # retranslateUi
-

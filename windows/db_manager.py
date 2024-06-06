@@ -1,6 +1,7 @@
 import psycopg2
 
 
+
 class Database:
     instance = None
     def __init__(self):
