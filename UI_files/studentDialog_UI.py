@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'studentDialogkQvdNl.ui'
+## Form generated from reading UI file 'studentDialogRMIcOp.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -275,9 +275,11 @@ class Ui_StudentsDialog(object):
         self.class_comboBox_2.setItemText(10, QCoreApplication.translate("StudentsDialog", u"Grade 11", None))
 
         self.label_8.setText(QCoreApplication.translate("StudentsDialog", u"Date of Birth", None))
+        self.dob_dateEdit.setDisplayFormat(QCoreApplication.translate("StudentsDialog", u"dd/MM/yyyy", None))
         self.label_3.setText(QCoreApplication.translate("StudentsDialog", u"Address", None))
         self.label_4.setText(QCoreApplication.translate("StudentsDialog", u"Phone Number", None))
         self.label_5.setText(QCoreApplication.translate("StudentsDialog", u"Email", None))
         self.saveStudent_btn.setText(QCoreApplication.translate("StudentsDialog", u"Add Student", None))
         self.cancel_btn.setText(QCoreApplication.translate("StudentsDialog", u"Cancel", None))
     # retranslateUi
+

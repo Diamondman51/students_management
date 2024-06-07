@@ -1,7 +1,11 @@
 from PySide6.QtGui import QAction
-from PySide6.QtWidgets import QWidget, QMenu
+from PySide6.QtWidgets import QWidget, QMenu, QAbstractItemView, QTableWidgetItem
 import psycopg2
+
+from UI_files.studentDialog_UI import Ui_StudentsDialog
 from UI_files.ui_index import Ui_Form
+from windows.db_manager import Database
+from windows.studentDialog import StudentDialog
 
 
 class Window(QWidget, Ui_Form):
@@ -10,8 +14,8 @@ class Window(QWidget, Ui_Form):
 
         self.setupUi(self)
         self.setWindowTitle('Sidebar menu')
-        self.stackedWidget.setCurrentIndex(0)
-
+        # self.stackedWidget.setCurrentIndex(0)
+        self.database = Database()
         # set icon_only_widget hidden
         self.icon_only_widget.setHidden(True)
 
@@ -56,6 +60,12 @@ class Window(QWidget, Ui_Form):
 
         # Create students table
         self.create_students_table()
+
+        # Open add student dialog
+        self.addStudent_btn.clicked.connect(self.open_addStudent_dialog)
+
+        # Initialize table settings
+        # self.init_table_settings()
 
     # Methods to switch to different pages
 
@@ -217,3 +227,55 @@ class Window(QWidget, Ui_Form):
         # Commit changes and close the connection
         self.conn.commit()
         self.conn.close()
+
+    def init_table_settings(self):
+        column_names = ["Name", "Id", "Gender", "Class", "birthday", "age", "address", "phone_number", "email"]
+
+        self.studentInfo_table.setColumnCount(len(column_names))
+        self.studentInfo_table.setColumnWidth(0, 200)
+        self.studentInfo_table.setColumnWidth(1, 50)
+        self.studentInfo_table.setColumnWidth(2, 50)
+        self.studentInfo_table.setColumnWidth(3, 50)
+        self.studentInfo_table.setColumnWidth(4, 100)
+        self.studentInfo_table.setColumnWidth(5, 50)
+        self.studentInfo_table.setColumnWidth(6, 100)
+        self.studentInfo_table.setColumnWidth(7, 200)
+        self.studentInfo_table.setColumnWidth(7, 100)
+        self.studentInfo_table.setColumnWidth(7, 100)
+
+        self.studentInfo_table.setHorizontalHeaderLabels(column_names)
+
+        self.studentInfo_table.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
+
+    def load_students(self):
+        self.studentInfo_table.clearContents()
+        self.studentInfo_table.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
+        # self.studentInfo_table.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
+
+        # self.init_table_settings()
+
+        # read from db
+        students = self.database.student_read(9)
+
+        print(f"So'rov natijas: {len(students)} ta mijoz")
+        if not students:
+            return
+
+        # qatorlar sonini kirit
+        self.studentInfo_table.setRowCount(len(students))
+
+        # ma'lumotlarni jadvalga kirit
+        for row, student in enumerate(students):
+            for column, item in enumerate(student):
+                self.studentInfo_table.setItem(row, column, QTableWidgetItem(str(item)))
+
+    # Open dialog when inserting new student
+    def open_addStudent_dialog(self):
+
+        # instantiate and show the dialog
+        addStudent_dialog = StudentDialog()
+        result = addStudent_dialog.exec() # This will block untill the dialog is closed
+
+        if result == StudentDialog.accepted:
+            # If the dialog was accepted (User clicked add student button)
+            pass
