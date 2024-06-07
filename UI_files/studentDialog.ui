@@ -248,7 +248,11 @@ QComboBox {
          </widget>
         </item>
         <item>
-         <widget class="QDateEdit" name="dob_dateEdit"/>
+         <widget class="QDateEdit" name="dob_dateEdit">
+          <property name="displayFormat">
+           <string>dd/MM/yyyy</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
