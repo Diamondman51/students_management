@@ -155,4 +155,5 @@ class StudentDialog(Ui_StudentsDialog, QDialog):
 
     def add_student(self):
         self.insert_new_student()
-        self.saveStudent_btn.clicked.connect(self.accept)
+        # self.saveStudent_btn.clicked.connect(self.accept)
+        self.accept()

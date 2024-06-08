@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'studentDialogpXcoLj.ui'
+## Form generated from reading UI file 'studentDialogRLQEnw.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.3
+## Created by: Qt User Interface Compiler version 6.7.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -56,8 +56,8 @@ class Ui_StudentsDialog(object):
         self.line = QFrame(StudentsDialog)
         self.line.setObjectName(u"line")
         self.line.setGeometry(QRect(0, 60, 551, 31))
-        self.line.setFrameShape(QFrame.HLine)
-        self.line.setFrameShadow(QFrame.Sunken)
+        self.line.setFrameShape(QFrame.Shape.HLine)
+        self.line.setFrameShadow(QFrame.Shadow.Sunken)
         self.label = QLabel(StudentsDialog)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(20, 20, 281, 31))
@@ -222,7 +222,7 @@ class Ui_StudentsDialog(object):
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer)
 
@@ -237,6 +237,7 @@ class Ui_StudentsDialog(object):
 "	font-weight: bold;\n"
 "	font-size:15px;\n"
 "}")
+        self.saveStudent_btn.setAutoDefault(False)
 
         self.horizontalLayout_2.addWidget(self.saveStudent_btn)
 
@@ -257,6 +258,14 @@ class Ui_StudentsDialog(object):
 
         self.gridLayout.addLayout(self.horizontalLayout_2, 1, 0, 1, 1)
 
+        QWidget.setTabOrder(self.name_LineEdit, self.gender_comboBox)
+        QWidget.setTabOrder(self.gender_comboBox, self.class_comboBox_2)
+        QWidget.setTabOrder(self.class_comboBox_2, self.dob_dateEdit)
+        QWidget.setTabOrder(self.dob_dateEdit, self.address_LineEdit)
+        QWidget.setTabOrder(self.address_LineEdit, self.phone_LineEdit)
+        QWidget.setTabOrder(self.phone_LineEdit, self.email_LineEdit)
+        QWidget.setTabOrder(self.email_LineEdit, self.saveStudent_btn)
+        QWidget.setTabOrder(self.saveStudent_btn, self.cancel_btn)
 
         self.retranslateUi(StudentsDialog)
 
