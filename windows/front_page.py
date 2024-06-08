@@ -1,8 +1,8 @@
+import psycopg2
 from PySide6.QtGui import QAction
 from PySide6.QtWidgets import QWidget, QMenu, QAbstractItemView, QTableWidgetItem
-import psycopg2
 
-from UI_files.studentDialog_UI import Ui_StudentsDialog
+from Buttons.Double_button_widgets import DoubleButtonWidgetStudents
 from UI_files.ui_index import Ui_Form
 from windows.db_manager import Database
 from windows.studentDialog import StudentDialog
@@ -15,7 +15,7 @@ class Window(QWidget, Ui_Form):
         self.setupUi(self)
         self.setWindowTitle('Sidebar menu')
         # self.stackedWidget.setCurrentIndex(0)
-        self.database = Database()
+        self.database = Database.get_instance()
         # set icon_only_widget hidden
         self.icon_only_widget.setHidden(True)
 
@@ -61,11 +61,36 @@ class Window(QWidget, Ui_Form):
         # Create students table
         self.create_students_table()
 
+        # Load students information to QTable
+        self.load_students_info()
+        self.select_class.currentIndexChanged.connect(self.reloadStudentstable_data)
+        self.select_gender.currentIndexChanged.connect(self.reloadStudentstable_data)
+        self.search_student.textChanged.connect(self.search_Students)
+
+        # Control column width
+        self.studentInfo_table.setColumnWidth(0, 120)
+        self.studentInfo_table.setColumnWidth(1, 80)
+        self.studentInfo_table.setColumnWidth(2, 60)
+        self.studentInfo_table.setColumnWidth(3, 70)
+        self.studentInfo_table.setColumnWidth(4, 70)
+        self.studentInfo_table.setColumnWidth(5, 50)
+        self.studentInfo_table.setColumnWidth(6, 70)
+        self.studentInfo_table.setColumnWidth(7, 80)
+        self.studentInfo_table.setColumnWidth(8, 120)
+        self.studentInfo_table.setColumnWidth(9, 150)
+
+
         # Open add student dialog
         self.addStudent_btn.clicked.connect(self.open_addStudent_dialog)
 
         # Initialize table settings
         # self.init_table_settings()
+
+        # Load students
+        # self.load_students()
+
+        # search
+        self.search_student.textEdited.connect(self.search)
 
     # Methods to switch to different pages
 
@@ -274,8 +299,77 @@ class Window(QWidget, Ui_Form):
 
         # instantiate and show the dialog
         addStudent_dialog = StudentDialog()
-        result = addStudent_dialog.exec() # This will block untill the dialog is closed
+        result = addStudent_dialog.exec()  # This will block untill the dialog is closed
+        # self.load_students()
 
-        if result == StudentDialog.accepted:
+        if result == StudentDialog.Accepted:
             # If the dialog was accepted (User clicked add student button)
-            pass
+            self.reloadStudentstable_data()
+
+    def reloadStudentstable_data(self):
+        self.load_students_info()
+
+    # Search
+    def search(self, ):
+        pass
+
+    # Load students info to QTable
+    def load_students_info(self):
+        # clear existing data in the data
+        self.studentInfo_table.setRowCount(0)
+
+        # fetch data on the selected class and gender in the combo boxes
+        selected_class = self.select_class.currentText()
+        selected_gender = self.select_gender.currentText()
+        data = self.get_data_from_table(selected_class, selected_gender)
+        self.populate_the_filter(data)
+
+    def get_data_from_table(self, class_filter, gender_filter):
+
+        cursor = self.create_connection().cursor()
+
+        query = f'''select * from students_table
+        where
+        ('{class_filter}' = 'SELECT CLASS' or class = '{class_filter}') and
+        ('{gender_filter}' = 'SELECT GENDER' or gender = '{gender_filter}')'''
+
+        cursor.execute(query)
+
+        data = cursor.fetchall()
+
+        return data
+
+    # Search
+    def search_Students(self):
+
+        # Clear previous table results
+        self.studentInfo_table.setRowCount(0)
+
+        # Get the search query from the QlineEdit
+        search_query = self.search_student.text()
+
+        # Execute the SQL query
+        cursor = self.create_connection().cursor()
+        sql_query = f"""select * from students_table
+                    where lower(names) like lower('{search_query}%')"""
+        cursor.execute(sql_query)
+        result = cursor.fetchall()
+
+        self.populate_the_filter(result)
+
+    def populate_the_filter(self, data):
+
+        # Populate the filter with the filtered data
+        for row_index, row_data in enumerate(data):
+            self.studentInfo_table.insertRow(row_index)
+            for col_index, cell_data in enumerate(row_data):
+                item = QTableWidgetItem(str(cell_data))
+                self.studentInfo_table.setItem(row_index, col_index, item)
+
+            # create a custom widget with two buttons lineed up horizontally for the actions column
+            double_button_widget = DoubleButtonWidgetStudents(row_index, row_data)
+
+            # Set this custom widget with two buttons lineed up horizontally for the actions column
+            self.studentInfo_table.setCellWidget(row_index, 9, double_button_widget)
+            self.studentInfo_table.setRowHeight(row_index, 50)
+

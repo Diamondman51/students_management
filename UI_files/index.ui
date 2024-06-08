@@ -19,7 +19,7 @@
   <property name="maximumSize">
    <size>
     <width>12333</width>
-    <height>880</height>
+    <height>883</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -1783,12 +1783,12 @@ QTableWidget {
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>98</x>
-     <y>120</y>
+     <x>195</x>
+     <y>152</y>
     </hint>
     <hint type="destinationlabel">
-     <x>50</x>
-     <y>118</y>
+     <x>70</x>
+     <y>146</y>
     </hint>
    </hints>
   </connection>
@@ -1803,8 +1803,8 @@ QTableWidget {
      <y>169</y>
     </hint>
     <hint type="destinationlabel">
-     <x>44</x>
-     <y>160</y>
+     <x>64</x>
+     <y>190</y>
     </hint>
    </hints>
   </connection>
@@ -1815,12 +1815,12 @@ QTableWidget {
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>131</x>
-     <y>210</y>
+     <x>229</x>
+     <y>243</y>
     </hint>
     <hint type="destinationlabel">
-     <x>59</x>
-     <y>210</y>
+     <x>70</x>
+     <y>238</y>
     </hint>
    </hints>
   </connection>
@@ -1831,12 +1831,12 @@ QTableWidget {
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>153</x>
-     <y>377</y>
+     <x>251</x>
+     <y>412</y>
     </hint>
     <hint type="destinationlabel">
-     <x>52</x>
-     <y>252</y>
+     <x>70</x>
+     <y>286</y>
     </hint>
    </hints>
   </connection>
@@ -1851,8 +1851,8 @@ QTableWidget {
      <y>553</y>
     </hint>
     <hint type="destinationlabel">
-     <x>33</x>
-     <y>299</y>
+     <x>53</x>
+     <y>334</y>
     </hint>
    </hints>
   </connection>
@@ -1868,7 +1868,7 @@ QTableWidget {
     </hint>
     <hint type="destinationlabel">
      <x>57</x>
-     <y>804</y>
+     <y>808</y>
     </hint>
    </hints>
   </connection>
@@ -1884,7 +1884,7 @@ QTableWidget {
     </hint>
     <hint type="destinationlabel">
      <x>59</x>
-     <y>850</y>
+     <y>859</y>
     </hint>
    </hints>
   </connection>
@@ -1943,8 +1943,8 @@ QTableWidget {
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>335</x>
-     <y>45</y>
+     <x>362</x>
+     <y>84</y>
     </hint>
     <hint type="destinationlabel">
      <x>69</x>

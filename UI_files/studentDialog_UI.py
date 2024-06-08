@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'studentDialogRMIcOp.ui'
+## Form generated from reading UI file 'studentDialogpXcoLj.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -16,8 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QDialog,
-    QFrame, QHBoxLayout, QLabel, QLineEdit,
-    QPushButton, QSizePolicy, QVBoxLayout, QWidget)
+    QFrame, QGridLayout, QHBoxLayout, QLabel,
+    QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
+    QVBoxLayout, QWidget)
 
 class Ui_StudentsDialog(object):
     def setupUi(self, StudentsDialog):
@@ -67,10 +68,12 @@ class Ui_StudentsDialog(object):
         self.label.setFont(font)
         self.layoutWidget = QWidget(StudentsDialog)
         self.layoutWidget.setObjectName(u"layoutWidget")
-        self.layoutWidget.setGeometry(QRect(20, 100, 511, 401))
-        self.verticalLayout_8 = QVBoxLayout(self.layoutWidget)
+        self.layoutWidget.setGeometry(QRect(20, 100, 511, 471))
+        self.gridLayout = QGridLayout(self.layoutWidget)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_8 = QVBoxLayout()
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.label_2 = QLabel(self.layoutWidget)
@@ -150,6 +153,7 @@ class Ui_StudentsDialog(object):
 
         self.dob_dateEdit = QDateEdit(self.layoutWidget)
         self.dob_dateEdit.setObjectName(u"dob_dateEdit")
+        self.dob_dateEdit.setCalendarPopup(True)
 
         self.verticalLayout_7.addWidget(self.dob_dateEdit)
 
@@ -213,13 +217,16 @@ class Ui_StudentsDialog(object):
 
         self.verticalLayout_8.addLayout(self.verticalLayout_4)
 
-        self.layoutWidget1 = QWidget(StudentsDialog)
-        self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(300, 520, 231, 43))
-        self.horizontalLayout_2 = QHBoxLayout(self.layoutWidget1)
+
+        self.gridLayout.addLayout(self.verticalLayout_8, 0, 0, 1, 1)
+
+        self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.saveStudent_btn = QPushButton(self.layoutWidget1)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer)
+
+        self.saveStudent_btn = QPushButton(self.layoutWidget)
         self.saveStudent_btn.setObjectName(u"saveStudent_btn")
         self.saveStudent_btn.setMinimumSize(QSize(111, 41))
         self.saveStudent_btn.setStyleSheet(u"QPushButton {\n"
@@ -233,7 +240,7 @@ class Ui_StudentsDialog(object):
 
         self.horizontalLayout_2.addWidget(self.saveStudent_btn)
 
-        self.cancel_btn = QPushButton(self.layoutWidget1)
+        self.cancel_btn = QPushButton(self.layoutWidget)
         self.cancel_btn.setObjectName(u"cancel_btn")
         self.cancel_btn.setMinimumSize(QSize(75, 41))
         self.cancel_btn.setStyleSheet(u"QPushButton {\n"
@@ -246,6 +253,9 @@ class Ui_StudentsDialog(object):
 "}")
 
         self.horizontalLayout_2.addWidget(self.cancel_btn)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout_2, 1, 0, 1, 1)
 
 
         self.retranslateUi(StudentsDialog)

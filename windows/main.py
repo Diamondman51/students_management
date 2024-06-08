@@ -5,7 +5,7 @@ from front_page import Window
 app = QApplication()
 
 window = Window()
-window.load_students()
+# window.load_students()
 if __name__ == '__main__':
     window.show()
     app.exec()

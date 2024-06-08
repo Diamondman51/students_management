@@ -67,8 +67,9 @@ class Database:
         self.conn.commit()
 
     def student_read(self, grade: int):
-        sql = """SELECT * FROM public.students_table"""
-        self.cursor.execute(sql)
+        sql = """SELECT * FROM public.students_table 
+        where class=%s"""
+        self.cursor.execute(sql, (f'Grade {grade}',))
         return self.cursor.fetchall()
 
     def student_by_grade(self, grade: int):
@@ -96,7 +97,9 @@ class Database:
 
 
 
-# # f = Database()
+f = Database.get_instance()
+print(f.student_read(5))
+# f.student_add()
 # # Database.get_instance()
 # g = Database().get_instance()
 # print(g.student_read(9))

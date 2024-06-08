@@ -1,6 +1,4 @@
-import errno
 from datetime import datetime
-
 from random import randint
 
 import psycopg2
@@ -85,11 +83,13 @@ class StudentDialog(Ui_StudentsDialog, QDialog):
 
             # To put multiple rows in the PostgreSQL database
 
-            insert_student_query = '''INSERT INTO students_table (names, student_id, gender, class, birthday, age, address, phone_number, email) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)'''
+            insert_student_query = '''INSERT INTO students_table (names, student_id, gender, class, birthday, age, address, phone_number, email) 
+            VALUES 
+            (%s, %s, %s, %s, %s, %s, %s, %s, %s)'''
             cursor.execute(insert_student_query, self.new_student)
             self.show_inserted_message()
             connection.commit()
-            cursor.close()
+            # cursor.close()
             connection.close()
 
         except psycopg2.errors.SyntaxError as error:
@@ -155,6 +155,4 @@ class StudentDialog(Ui_StudentsDialog, QDialog):
 
     def add_student(self):
         self.insert_new_student()
-        self.accept()
-
-
+        self.saveStudent_btn.clicked.connect(self.accept)
