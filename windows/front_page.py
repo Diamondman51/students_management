@@ -1,12 +1,16 @@
 import psycopg2
 from PySide6.QtGui import QAction
-from PySide6.QtWidgets import QWidget, QMenu, QAbstractItemView, QTableWidgetItem
+from PySide6.QtWidgets import QWidget, QMenu, QAbstractItemView, QTableWidgetItem, QFileDialog
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
 
 from Buttons.Double_button_widgets import DoubleButtonWidgetStudents
 from UI_files.ui_index import Ui_Form
 from windows.db_manager import Database
 from windows.studentDialog import StudentDialog
 
+import pandas as pd
 
 class Window(QWidget, Ui_Form):
     def __init__(self):
@@ -14,7 +18,7 @@ class Window(QWidget, Ui_Form):
 
         self.setupUi(self)
         self.setWindowTitle('Sidebar menu')
-        # self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
         self.database = Database.get_instance()
         # set icon_only_widget hidden
         self.icon_only_widget.setHidden(True)
@@ -91,6 +95,13 @@ class Window(QWidget, Ui_Form):
 
         # search
         self.search_student.textEdited.connect(self.search)
+
+        # Excel export
+        self.excelExport_btn.clicked.connect(self.export_to_excel_StudentsTable)
+
+        # PDF export
+        self.pdfExport_btn.clicked.connect(self.export_to_pdf_StudentsTable)
+
 
     # Methods to switch to different pages
 
@@ -227,7 +238,6 @@ class Window(QWidget, Ui_Form):
         return self.conn
 
     # CREATE STUDENTS TABLE
-
     def create_students_table(self):
         cursor = self.create_connection().cursor()
 
@@ -357,7 +367,81 @@ class Window(QWidget, Ui_Form):
 
         self.populate_the_filter(result)
 
+    # Export to Excel
+    def export_to_excel_StudentsTable(self):
+
+        # Convert QTableWidget to pandas dataframe
+        data = []
+
+        self.headers = [self.studentInfo_table.horizontalHeaderItem(col).text() for col in range(self.studentInfo_table.columnCount())]
+
+        for row in range(self.studentInfo_table.rowCount()):
+            # Check if the item is not None before accessing its text
+            row_data = [self.studentInfo_table.item(row, col).text() if self.studentInfo_table.item(row, col) is not None else '' for col in range(self.studentInfo_table.columnCount())]
+            data.append(row_data)
+
+        # Create a pandas Data Frame with the collected data and the headers
+        df = pd.DataFrame(data, columns=self.headers)
+        print(data)
+
+        # Save the Data Frame to Excel file
+        # Exclude the last column before exporting
+        df_filtered = df.iloc[:, :-1]
+
+        # Open QFileDialog to get the file path
+        file_dialog = QFileDialog()
+        file_path, _ = file_dialog.getSaveFileName(self, 'Save Excel File', '', 'Excel files (*.xlsx);;All Files (*)')
+
+        if file_path:
+            # Save the filtered Dataframe to Excel File at the choosen path
+            df_filtered.to_excel(file_path, index=False)
+            print(f'Table exported to {file_path}')
+
+    # Export to PDF
+    def export_to_pdf_StudentsTable(self):
+
+        # Open QFileDialog to get the file path
+        file_dialog = QFileDialog()
+        file_path, _ = file_dialog.getSaveFileName(self, 'Save PDF file', '', 'PDF Files (*.pdf);;All Files (*)')
+        if file_path:
+            # Create a PDF Document
+            pdf_document = SimpleDocTemplate(file_path, pagesize=letter)
+
+            # Assuming n is the total number of columns in your QTable Widget
+            n = self.studentInfo_table.columnCount()
+
+            # Extract headers from the QTableWidget
+            headers = [self.studentInfo_table.horizontalHeaderItem(col).text() for col in range(n - 1)]
+
+            # Extract the data from the QTableWidget, excluding the last column
+            data = [headers]
+
+            for row in range(self.studentInfo_table.rowCount()):
+                row_data = [self.studentInfo_table.item(row, col).text() if self.studentInfo_table.item(row, col) is not None else '' for col in range(n - 1)]
+                data.append(row_data)
+
+            # Create a PDF Table
+            pdf_table = Table(data)
+
+            # Apply the styles to the table
+            style = TableStyle([
+                ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+                ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                ('FONTSIZE', (0, 0), (-1, -1), 8),
+                ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ])
+
+            pdf_table.setStyle(style)
+
+            # Build the PDF Document
+            pdf_document.build([pdf_table])
+
+            print(f'Table exported to {file_path}')
+
+
     def populate_the_filter(self, data):
+        print(data)
 
         # Populate the filter with the filtered data
         for row_index, row_data in enumerate(data):
@@ -366,10 +450,10 @@ class Window(QWidget, Ui_Form):
                 item = QTableWidgetItem(str(cell_data))
                 self.studentInfo_table.setItem(row_index, col_index, item)
 
-            # create a custom widget with two buttons lineed up horizontally for the actions column
-            double_button_widget = DoubleButtonWidgetStudents(row_index, row_data)
+            # create a custom widget with two buttons lined up horizontally for the actions column
+            double_button_widget = DoubleButtonWidgetStudents(row_index, row_data, self)
 
-            # Set this custom widget with two buttons lineed up horizontally for the actions column
+            # Set this custom widget with two buttons lined up horizontally for the actions column
             self.studentInfo_table.setCellWidget(row_index, 9, double_button_widget)
             self.studentInfo_table.setRowHeight(row_index, 50)
 

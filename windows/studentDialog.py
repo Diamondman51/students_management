@@ -89,7 +89,7 @@ class StudentDialog(Ui_StudentsDialog, QDialog):
             cursor.execute(insert_student_query, self.new_student)
             self.show_inserted_message()
             connection.commit()
-            # cursor.close()
+            cursor.close()
             connection.close()
 
         except psycopg2.errors.SyntaxError as error:
@@ -112,6 +112,7 @@ class StudentDialog(Ui_StudentsDialog, QDialog):
 
             # check if the generated student id is already in the table
             cursor.execute(f'SELECT student_id FROM students_table WHERE student_id = %s', (student_id,))
+            # cursor.close()
             existing_id = cursor.fetchone()
             if not existing_id:
                 return student_id
@@ -155,5 +156,4 @@ class StudentDialog(Ui_StudentsDialog, QDialog):
 
     def add_student(self):
         self.insert_new_student()
-        # self.saveStudent_btn.clicked.connect(self.accept)
         self.accept()

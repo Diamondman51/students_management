@@ -6,51 +6,76 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>488</width>
-    <height>610</height>
+    <width>940</width>
+    <height>727</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">*{border:none}
+
+QDialog {
+    background-image: url(':/images/back.png');
+    background-repeat: no-repeat;
+    background-position: center;
+	background-size: unset;
+}
+
+QPushButton {
+	color: black;
+	background-color: rgb(255, 255, 255);
+	border-radius: 5;
+}
+
+QPushButton:pressed {
+margin: 1 2 1 2;
+}
+
+QLabel {
+color: white;
+}
+
+QLineEdit {
+border-radius:5;
+padding:0 15;
+}</string>
+  </property>
   <widget class="QWidget" name="login_widget" native="true">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>70</y>
-     <width>401</width>
-     <height>481</height>
+     <x>230</x>
+     <y>150</y>
+     <width>490</width>
+     <height>391</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">#login_widget {
-	background-color: rgba(0, 112, 215, 0.28);
+	background-color: rgba(0, 112, 215, 0.4);
 	border-radius: 15;
 }</string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="4" column="0">
-     <widget class="QLineEdit" name="lineEdit_2">
-      <property name="font">
-       <font>
-        <strikeout>false</strikeout>
-       </font>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="label_3">
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
+    <item row="8" column="0">
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
       </property>
       <property name="text">
-       <string>Parol</string>
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="../resources/resources.qrc">
+        <normaloff>:/images/google_icon.png</normaloff>:/images/google_icon.png</iconset>
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
+    <item row="1" column="0" colspan="3">
      <widget class="QLabel" name="label_2">
       <property name="font">
        <font>
@@ -62,10 +87,84 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
-     <widget class="QLineEdit" name="lineEdit"/>
+    <item row="8" column="1">
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="../resources/resources.qrc">
+        <normaloff>:/images/github_icon.png</normaloff>:/images/github_icon.png</iconset>
+      </property>
+     </widget>
     </item>
-    <item row="0" column="0">
+    <item row="2" column="0" colspan="3">
+     <widget class="QLineEdit" name="email_Line">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="placeholderText">
+       <string>username@gmail.com</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0" colspan="3">
+     <widget class="QLabel" name="label_3">
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Parol</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="2">
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="../resources/resources.qrc">
+        <normaloff>:/images/facebook_icon.png</normaloff>:/images/facebook_icon.png</iconset>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0" colspan="3">
+     <widget class="QLineEdit" name="password_line">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <strikeout>false</strikeout>
+       </font>
+      </property>
+      <property name="placeholderText">
+       <string>Password</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="3">
      <widget class="QLabel" name="label">
       <property name="font">
        <font>
@@ -78,10 +177,64 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="0">
+    <item row="7" column="0" colspan="3">
      <spacer name="verticalSpacer">
       <property name="orientation">
-       <enum>Qt::Orientation::Vertical</enum>
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::MinimumExpanding</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="6" column="0" colspan="3">
+     <widget class="QPushButton" name="sign_in_btn">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Sign in</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0" colspan="3">
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="9" column="1">
+     <spacer name="verticalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::MinimumExpanding</enum>
       </property>
       <property name="sizeHint" stdset="0">
        <size>
@@ -92,14 +245,22 @@
      </spacer>
     </item>
    </layout>
-   <zorder>lineEdit_2</zorder>
-   <zorder>lineEdit</zorder>
+   <zorder>password_line</zorder>
+   <zorder>email_Line</zorder>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
    <zorder>label_3</zorder>
    <zorder>verticalSpacer</zorder>
+   <zorder>verticalSpacer_2</zorder>
+   <zorder>sign_in_btn</zorder>
+   <zorder>pushButton_2</zorder>
+   <zorder>pushButton_3</zorder>
+   <zorder>pushButton_4</zorder>
+   <zorder>verticalSpacer_3</zorder>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

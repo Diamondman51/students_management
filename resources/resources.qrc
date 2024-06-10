@@ -1,5 +1,10 @@
 <RCC>
   <qresource>
+    <file>images/back.png</file>
+    <file>images/background_icon.png</file>
+    <file>images/facebook_icon.png</file>
+    <file>images/github_icon.png</file>
+    <file>images/google_icon.png</file>
     <file>images/add student.png</file>
     <file>images/dashboard1.png</file>
     <file>images/dashboard2.png</file>

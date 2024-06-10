@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'indexJcXgtS.ui'
+## Form generated from reading UI file 'indexzjHuRC.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -15,11 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractItemView, QApplication, QComboBox, QFrame,
-    QGridLayout, QHBoxLayout, QHeaderView, QLabel,
-    QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
-    QStackedWidget, QTableWidget, QTableWidgetItem, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
+    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
+    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
+    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget)
 import resources.resources_rc
 
 class Ui_Form(object):
@@ -28,7 +27,7 @@ class Ui_Form(object):
             Form.setObjectName(u"Form")
         Form.resize(1251, 880)
         Form.setMinimumSize(QSize(1231, 880))
-        Form.setMaximumSize(QSize(16777215, 16777215))
+        Form.setMaximumSize(QSize(12333, 883))
         self.gridLayout_2 = QGridLayout(Form)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout = QGridLayout()
@@ -830,20 +829,35 @@ class Ui_Form(object):
         __qtablewidgetitem9 = QTableWidgetItem()
         self.studentInfo_table.setHorizontalHeaderItem(9, __qtablewidgetitem9)
         self.studentInfo_table.setObjectName(u"studentInfo_table")
-        self.studentInfo_table.setStyleSheet(u"QHeaderView::section {\n"
-"	font-weight: bold;\n"
-"	background-color: rgb(0, 0, 0);\n"
-"	color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QTableWidget {\n"
-"	alternate-background-color: #B0BDFB;\n"
-"	background-color:#F4F9FA;\n"
-"}")
-        self.studentInfo_table.setAlternatingRowColors(False)
-        self.studentInfo_table.setVerticalScrollMode(QAbstractItemView.ScrollPerPixel)
-        self.studentInfo_table.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
-        self.studentInfo_table.setSortingEnabled(False)
+#         self.studentInfo_table.setStyleSheet(u"QHeaderView::section {\n"
+# "	font-weight: bold;\n"
+# "	background-color: rgb(0, 0, 0);\n"
+# "	color: rgb(255, 255, 255);\n"
+# "}\n"
+# "\n"
+# "QHeaderView::section:pressed {\n"
+# " background-color: green;\n"
+# "}\n"
+# "\n"
+# "QTableWidget {\n"
+# "	alternate-background-color: #B0BDFB;\n"
+# "}\n"
+# "")
+        self.studentInfo_table.setStyleSheet('''
+        QHeaderView::section {
+            background-color: black;
+            color:white;
+            padding: 4px;
+            border: 1px solid gray;
+        }
+
+        QHeaderView::section:pressed {
+            background-color: green;
+            padding: 4px;
+            border: 1px solid blue;
+        }''')
+        self.studentInfo_table.setAlternatingRowColors(True)
+        self.studentInfo_table.setGridStyle(Qt.CustomDashLine)
 
         self.gridLayout_4.addWidget(self.studentInfo_table, 4, 0, 1, 1)
 

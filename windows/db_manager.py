@@ -13,7 +13,7 @@ class Database:
         user = 'postgres'
         password = 'Zshavkatov61@'
         port = '5432'
-        print(123)
+        # print(123)
 
         self.conn = psycopg2.connect(
             database=database,
@@ -97,8 +97,8 @@ class Database:
 
 
 
-f = Database.get_instance()
-print(f.student_read(5))
+# f = Database.get_instance()
+# print(f.student_read(5))
 # f.student_add()
 # # Database.get_instance()
 # g = Database().get_instance()

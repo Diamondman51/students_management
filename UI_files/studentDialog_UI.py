@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'studentDialogRLQEnw.ui'
+## Form generated from reading UI file 'studentDialogHcFxOg.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.1
+## Created by: Qt User Interface Compiler version 6.4.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -16,9 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QDialog,
-    QFrame, QGridLayout, QHBoxLayout, QLabel,
-    QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
-    QVBoxLayout, QWidget)
+    QGridLayout, QHBoxLayout, QLabel, QLineEdit,
+    QPushButton, QSizePolicy, QSpacerItem, QVBoxLayout,
+    QWidget)
 
 class Ui_StudentsDialog(object):
     def setupUi(self, StudentsDialog):
@@ -53,11 +53,6 @@ class Ui_StudentsDialog(object):
 "	font-weight: bold;\n"
 "	selection-background-color: #2980B9\n"
 "}")
-        self.line = QFrame(StudentsDialog)
-        self.line.setObjectName(u"line")
-        self.line.setGeometry(QRect(0, 60, 551, 31))
-        self.line.setFrameShape(QFrame.Shape.HLine)
-        self.line.setFrameShadow(QFrame.Shadow.Sunken)
         self.label = QLabel(StudentsDialog)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(20, 20, 281, 31))
@@ -222,7 +217,7 @@ class Ui_StudentsDialog(object):
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer)
 
@@ -237,13 +232,12 @@ class Ui_StudentsDialog(object):
 "	font-weight: bold;\n"
 "	font-size:15px;\n"
 "}")
-        self.saveStudent_btn.setAutoDefault(False)
 
         self.horizontalLayout_2.addWidget(self.saveStudent_btn)
 
         self.cancel_btn = QPushButton(self.layoutWidget)
         self.cancel_btn.setObjectName(u"cancel_btn")
-        self.cancel_btn.setMinimumSize(QSize(75, 41))
+        self.cancel_btn.setMinimumSize(QSize(111, 41))
         self.cancel_btn.setStyleSheet(u"QPushButton {\n"
 "	background-color:#585858;\n"
 "	color: rgb(255, 255, 255);\n"
@@ -252,6 +246,7 @@ class Ui_StudentsDialog(object):
 "	font-weight: bold;\n"
 "	font-size:15px;\n"
 "}")
+        self.cancel_btn.setAutoDefault(False)
 
         self.horizontalLayout_2.addWidget(self.cancel_btn)
 
@@ -264,10 +259,13 @@ class Ui_StudentsDialog(object):
         QWidget.setTabOrder(self.dob_dateEdit, self.address_LineEdit)
         QWidget.setTabOrder(self.address_LineEdit, self.phone_LineEdit)
         QWidget.setTabOrder(self.phone_LineEdit, self.email_LineEdit)
-        QWidget.setTabOrder(self.email_LineEdit, self.saveStudent_btn)
-        QWidget.setTabOrder(self.saveStudent_btn, self.cancel_btn)
+        QWidget.setTabOrder(self.email_LineEdit, self.cancel_btn)
+        QWidget.setTabOrder(self.cancel_btn, self.saveStudent_btn)
 
         self.retranslateUi(StudentsDialog)
+
+        self.saveStudent_btn.setDefault(True)
+
 
         QMetaObject.connectSlotsByName(StudentsDialog)
     # setupUi
