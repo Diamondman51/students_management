@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'indexRIfeDp.ui'
+## Form generated from reading UI file 'indexkmfgPj.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -26,8 +26,8 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(1251, 880)
-        Form.setMinimumSize(QSize(1231, 880))
+        Form.resize(1231, 883)
+        Form.setMinimumSize(QSize(1231, 883))
         Form.setMaximumSize(QSize(12333, 883))
         self.gridLayout_2 = QGridLayout(Form)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
@@ -656,6 +656,24 @@ class Ui_Form(object):
         self.stackedWidget.addWidget(self.page_2)
         self.page_3 = QWidget()
         self.page_3.setObjectName(u"page_3")
+        self.page_3.setStyleSheet(u"QPushButton:pressed {\n"
+"	margin: 1 0 1 3;\n"
+"}\n"
+"\n"
+"QComboBox:pressed {\n"
+"	margin: 1 0 1 3;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(119, 130, 148); /* Change background color when hovered */\n"
+"    color: rgb(255, 255, 255); /* Change text color when hovered */\n"
+"}\n"
+"\n"
+"\n"
+"QComboBox:hover {\n"
+"	background-color: rgb(119, 130, 148);\n"
+"	color:rgb(255, 255, 255)\n"
+"}")
         self.gridLayout_4 = QGridLayout(self.page_3)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.label_9 = QLabel(self.page_3)
@@ -687,10 +705,11 @@ class Ui_Form(object):
 "	background-color:black;\n"
 "	color: rgb(255, 255, 255);\n"
 "	border: none;\n"
-"	border-radius: 8;\n"
+"	border-radius: 8px;\n"
 "	font-weight: bold;\n"
 "	font-size:15px;\n"
-"}")
+"}\n"
+"")
         icon15 = QIcon()
         icon15.addFile(u":/images/add student.png", QSize(), QIcon.Normal, QIcon.Off)
         self.addStudent_btn.setIcon(icon15)

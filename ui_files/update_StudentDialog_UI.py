@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'UpdateStudentDialoggrcMGL.ui'
+## Form generated from reading UI file 'UpdateStudentDialogeGfRzy.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -52,6 +52,10 @@ class Ui_Update_StudentsDialog(object):
 "	height: 35;\n"
 "	font-weight: bold;\n"
 "	selection-background-color: #2980B9\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"	margin: 1 0 1 3;\n"
 "}")
         self.line = QFrame(Update_StudentsDialog)
         self.line.setObjectName(u"line")

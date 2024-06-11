@@ -41,6 +41,10 @@ QComboBox {
 	height: 35;
 	font-weight: bold;
 	selection-background-color: #2980B9
+}
+
+QPushButton:pressed {
+	margin: 1 0 1 3;
 }</string>
   </property>
   <widget class="Line" name="line">

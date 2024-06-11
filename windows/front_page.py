@@ -6,11 +6,15 @@ from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
 
 from Buttons.Double_button_widgets import DoubleButtonWidgetStudents
+
+from multiprocessing_for_loading.load_students_information_table import Students_information_Table
 from ui_files.ui_index import Ui_Form
-from windows.db_manager import Database
 from windows.studentDialog import StudentDialog
 
 import pandas as pd
+
+from windows.xml_import import XML_import
+
 
 class Window(QWidget, Ui_Form):
     def __init__(self):
@@ -65,6 +69,11 @@ class Window(QWidget, Ui_Form):
         # Create students table
         self.create_students_table()
 
+        # Load students information to QTable with additional Thread
+        # self.thread_load_students_info = Students_information_Table(self)
+        # if not self.thread_load_students_info.isRunning():
+        #     self.thread_load_students_info.start()
+
         # Load students information to QTable
         self.load_students_info()
         self.select_class.currentIndexChanged.connect(self.reloadStudentstable_data)
@@ -103,6 +112,7 @@ class Window(QWidget, Ui_Form):
         self.pdfExport_btn.clicked.connect(self.export_to_pdf_StudentsTable)
 
         # Import XML
+        self.import_xml_btn.clicked.connect(self.import_xml_file)
 
 
     # Methods to switch to different pages
@@ -319,6 +329,8 @@ class Window(QWidget, Ui_Form):
             self.reloadStudentstable_data()
 
     def reloadStudentstable_data(self):
+        # if not self.thread_load_students_info.isRunning():
+        #     self.thread_load_students_info.start()
         self.load_students_info()
 
     # Search
@@ -342,7 +354,7 @@ class Window(QWidget, Ui_Form):
 
         query = f'''select * from students_table
         where
-        ('{class_filter}' = 'SELECT CLASS' or class = '{class_filter}') 
+        ('{class_filter}' = 'SELECT CLASS' or class = '{class_filter}')
         and
         ('{gender_filter}' = 'SELECT GENDER' or gender = '{gender_filter}')'''
         cursor.execute(query)
@@ -460,3 +472,5 @@ class Window(QWidget, Ui_Form):
             self.studentInfo_table.setCellWidget(row_index, 9, double_button_widget)
             self.studentInfo_table.setRowHeight(row_index, 50)
 
+    def import_xml_file(self):
+        data = XML_import(self)

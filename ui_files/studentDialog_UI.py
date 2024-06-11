@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'studentDialogHcFxOg.ui'
+## Form generated from reading UI file 'studentDialogHFLMho.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -52,6 +52,10 @@ class Ui_StudentsDialog(object):
 "	height: 35;\n"
 "	font-weight: bold;\n"
 "	selection-background-color: #2980B9\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"	margin: 1 0 1 3;\n"
 "}")
         self.label = QLabel(StudentsDialog)
         self.label.setObjectName(u"label")
