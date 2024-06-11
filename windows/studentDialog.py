@@ -2,16 +2,19 @@ from datetime import datetime
 from random import randint
 
 import psycopg2
-from PyQt5.QtCore import Qt
-from PySide6.QtWidgets import QDialog
+from PySide6.QtGui import Qt
+from PySide6.QtWidgets import QDialog, QMessageBox
 
-from ui_files.studentDialog_UI import Ui_StudentsDialog
+from UI_files.studentDialog_UI import Ui_StudentsDialog
 
 
 class StudentDialog(Ui_StudentsDialog, QDialog):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.create_connection()
+        self.saveStudent_btn.clicked.connect(self.add_student)
+        self.cancel_btn.clicked.connect(self.close)
 
 # database_creation
     def create_connection(self):
@@ -32,18 +35,18 @@ class StudentDialog(Ui_StudentsDialog, QDialog):
 
         # Craete a cursor to execute PostgreSQL
 
-        corsor = self.conn.cursor()
-
-        # Create the database if it does not exist
-        corsor.execute(f'Create database if not exists {database}')
-
-        self.conn = psycopg2.connect(
-            database=database,
-            host=host,
-            user=user,
-            password=password,
-            port=port
-        )
+        # corsor = self.conn.cursor()
+        #
+        # # Create the database if it does not exist
+        # corsor.execute(f'Create database if not exists {database}')
+        #
+        # self.conn = psycopg2.connect(
+        #     database=database,
+        #     host=host,
+        #     user=user,
+        #     password=password,
+        #     port=port
+        # )
 
         return self.conn
 
@@ -51,7 +54,10 @@ class StudentDialog(Ui_StudentsDialog, QDialog):
     # INSERT NEW STUDENT
     def insert_new_student(self):
         try:
-            cursor = self.create_connection().cursor()
+            connection = self.create_connection()
+            if connection is None:
+                return
+            cursor = connection.cursor()
             gender = self.gender_comboBox.currentText()
             student_id = self.generate_studentId(gender)
 
@@ -77,14 +83,20 @@ class StudentDialog(Ui_StudentsDialog, QDialog):
 
             # To put multiple rows in the PostgreSQL database
 
-            insert_student_query = '''INSERT INTO students_table (names, student_id, gender, class, birthday, age, address, phone_number, email) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)'''
+            insert_student_query = '''INSERT INTO students_table (names, student_id, gender, class, birthday, age, address, phone_number, email) 
+            VALUES 
+            (%s, %s, %s, %s, %s, %s, %s, %s, %s)'''
             cursor.execute(insert_student_query, self.new_student)
-            self.conn.commit()
-            self.conn.close()
+            self.show_inserted_message()
+            connection.commit()
+            cursor.close()
+            connection.close()
 
-        except:
-            pass
-
+        except psycopg2.errors.SyntaxError as error:
+            msg = QMessageBox(self)
+            msg.setText('Error occured')
+            msg.exec()
+            print('Error:', error)
 
     def generate_studentId(self, gender):
         cursor = self.create_connection().cursor()
@@ -99,7 +111,8 @@ class StudentDialog(Ui_StudentsDialog, QDialog):
             student_id = id_start_value + random_value
 
             # check if the generated student id is already in the table
-            cursor.execute(f'SELECT student_id FROM students_table WHERE student_id = %s, (student_id,)')
+            cursor.execute(f'SELECT student_id FROM students_table WHERE student_id = %s', (student_id,))
+            # cursor.close()
             existing_id = cursor.fetchone()
             if not existing_id:
                 return student_id
@@ -134,3 +147,13 @@ class StudentDialog(Ui_StudentsDialog, QDialog):
             age -= 1
 
         return age
+
+    def show_inserted_message(self):
+        msg_Box = QMessageBox(self)
+        msg_Box.setWindowTitle('Success')
+        msg_Box.setText(self.name_LineEdit.text() + ' Inserted into the database')
+        msg_Box.exec()
+
+    def add_student(self):
+        self.insert_new_student()
+        self.accept()
