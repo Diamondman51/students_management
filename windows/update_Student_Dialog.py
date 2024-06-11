@@ -6,7 +6,7 @@ from PySide6.QtCore import QDate, Signal
 from PySide6.QtGui import QIcon, Qt
 from PySide6.QtWidgets import QDialog, QMessageBox
 
-from UI_files.update_StudentDialog_UI import Ui_Update_StudentsDialog
+from ui_files.update_StudentDialog_UI import Ui_Update_StudentsDialog
 
 
 class Update_studentDialog(Ui_Update_StudentsDialog, QDialog):

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'indexzjHuRC.ui'
+## Form generated from reading UI file 'indexcfGAPP.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -730,6 +730,21 @@ class Ui_Form(object):
 
         self.horizontalLayout_6.addWidget(self.pdfExport_btn)
 
+        self.pushButton_2 = QPushButton(self.page_3)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setMinimumSize(QSize(220, 41))
+        self.pushButton_2.setMaximumSize(QSize(220, 16777215))
+        self.pushButton_2.setStyleSheet(u"QPushButton {\n"
+"	background-color:rgb(175, 172, 255);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border: none;\n"
+"	border-radius: 8;\n"
+"	font-weight: bold;\n"
+"	font-size:15px;\n"
+"}")
+
+        self.horizontalLayout_6.addWidget(self.pushButton_2)
+
         self.horizontalSpacer_4 = QSpacerItem(100, 20, QSizePolicy.MinimumExpanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_6.addItem(self.horizontalSpacer_4)
@@ -829,35 +844,17 @@ class Ui_Form(object):
         __qtablewidgetitem9 = QTableWidgetItem()
         self.studentInfo_table.setHorizontalHeaderItem(9, __qtablewidgetitem9)
         self.studentInfo_table.setObjectName(u"studentInfo_table")
-#         self.studentInfo_table.setStyleSheet(u"QHeaderView::section {\n"
-# "	font-weight: bold;\n"
-# "	background-color: rgb(0, 0, 0);\n"
-# "	color: rgb(255, 255, 255);\n"
-# "}\n"
-# "\n"
-# "QHeaderView::section:pressed {\n"
-# " background-color: green;\n"
-# "}\n"
-# "\n"
-# "QTableWidget {\n"
-# "	alternate-background-color: #B0BDFB;\n"
-# "}\n"
-# "")
-        self.studentInfo_table.setStyleSheet('''
-        QHeaderView::section {
-            background-color: black;
-            color:white;
-            padding: 4px;
-            border: 1px solid gray;
-        }
-
-        QHeaderView::section:pressed {
-            background-color: green;
-            padding: 4px;
-            border: 1px solid blue;
-        }''')
+        self.studentInfo_table.setStyleSheet(u"QHeaderView::section {\n"
+"	font-weight: bold;\n"
+"	background-color: rgb(0, 0, 0);\n"
+"	color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QTableWidget {\n"
+"	alternate-background-color: #B0BDFB;\n"
+"	background-color:#F4F9FA;\n"
+"}")
         self.studentInfo_table.setAlternatingRowColors(True)
-        self.studentInfo_table.setGridStyle(Qt.CustomDashLine)
 
         self.gridLayout_4.addWidget(self.studentInfo_table, 4, 0, 1, 1)
 
@@ -1000,6 +997,7 @@ class Ui_Form(object):
         self.addStudent_btn.setText(QCoreApplication.translate("Form", u"Add Student", None))
         self.excelExport_btn.setText(QCoreApplication.translate("Form", u"Export to Excel", None))
         self.pdfExport_btn.setText(QCoreApplication.translate("Form", u"Export to PDF", None))
+        self.pushButton_2.setText(QCoreApplication.translate("Form", u"Import extra data from xml", None))
         self.select_gender.setItemText(0, QCoreApplication.translate("Form", u"SELECT GENDER", None))
         self.select_gender.setItemText(1, QCoreApplication.translate("Form", u"Male", None))
         self.select_gender.setItemText(2, QCoreApplication.translate("Form", u"Female", None))

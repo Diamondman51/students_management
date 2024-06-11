@@ -5,7 +5,7 @@ import psycopg2
 from PySide6.QtGui import Qt
 from PySide6.QtWidgets import QDialog, QMessageBox
 
-from UI_files.studentDialog_UI import Ui_StudentsDialog
+from ui_files.studentDialog_UI import Ui_StudentsDialog
 
 
 class StudentDialog(Ui_StudentsDialog, QDialog):

@@ -1,7 +1,7 @@
 import psycopg2
 from PySide6.QtWidgets import QDialog, QLineEdit
 
-from UI_files.login_dialog_UI import Ui_Dialog
+from ui_files.login_dialog_UI import Ui_Dialog
 
 
 class Login(Ui_Dialog, QDialog):

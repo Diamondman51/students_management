@@ -6,7 +6,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
 
 from Buttons.Double_button_widgets import DoubleButtonWidgetStudents
-from UI_files.ui_index import Ui_Form
+from ui_files.ui_index import Ui_Form
 from windows.db_manager import Database
 from windows.studentDialog import StudentDialog
 
@@ -101,6 +101,8 @@ class Window(QWidget, Ui_Form):
 
         # PDF export
         self.pdfExport_btn.clicked.connect(self.export_to_pdf_StudentsTable)
+
+        # Import XML
 
 
     # Methods to switch to different pages

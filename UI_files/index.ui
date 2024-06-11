@@ -1283,6 +1283,35 @@ QPushButton:checked {
                  </widget>
                 </item>
                 <item>
+                 <widget class="QPushButton" name="import_xml_btn">
+                  <property name="minimumSize">
+                   <size>
+                    <width>220</width>
+                    <height>41</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>220</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton {
+	background-color:rgb(175, 172, 255);
+	color: rgb(255, 255, 255);
+	border: none;
+	border-radius: 8;
+	font-weight: bold;
+	font-size:15px;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Import extra data from xml</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
                  <spacer name="horizontalSpacer_4">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
