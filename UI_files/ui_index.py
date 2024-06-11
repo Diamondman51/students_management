@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'indexcfGAPP.ui'
+## Form generated from reading UI file 'indexRIfeDp.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -15,10 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
-    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
-    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
-    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractItemView, QApplication, QComboBox, QFrame,
+    QGridLayout, QHBoxLayout, QHeaderView, QLabel,
+    QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
+    QStackedWidget, QTableWidget, QTableWidgetItem, QVBoxLayout,
+    QWidget)
 import resources.resources_rc
 
 class Ui_Form(object):
@@ -730,11 +731,11 @@ class Ui_Form(object):
 
         self.horizontalLayout_6.addWidget(self.pdfExport_btn)
 
-        self.pushButton_2 = QPushButton(self.page_3)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setMinimumSize(QSize(220, 41))
-        self.pushButton_2.setMaximumSize(QSize(220, 16777215))
-        self.pushButton_2.setStyleSheet(u"QPushButton {\n"
+        self.import_xml_btn = QPushButton(self.page_3)
+        self.import_xml_btn.setObjectName(u"import_xml_btn")
+        self.import_xml_btn.setMinimumSize(QSize(220, 41))
+        self.import_xml_btn.setMaximumSize(QSize(220, 16777215))
+        self.import_xml_btn.setStyleSheet(u"QPushButton {\n"
 "	background-color:rgb(175, 172, 255);\n"
 "	color: rgb(255, 255, 255);\n"
 "	border: none;\n"
@@ -743,7 +744,7 @@ class Ui_Form(object):
 "	font-size:15px;\n"
 "}")
 
-        self.horizontalLayout_6.addWidget(self.pushButton_2)
+        self.horizontalLayout_6.addWidget(self.import_xml_btn)
 
         self.horizontalSpacer_4 = QSpacerItem(100, 20, QSizePolicy.MinimumExpanding, QSizePolicy.Minimum)
 
@@ -855,6 +856,8 @@ class Ui_Form(object):
 "	background-color:#F4F9FA;\n"
 "}")
         self.studentInfo_table.setAlternatingRowColors(True)
+        self.studentInfo_table.setVerticalScrollMode(QAbstractItemView.ScrollPerPixel)
+        self.studentInfo_table.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
 
         self.gridLayout_4.addWidget(self.studentInfo_table, 4, 0, 1, 1)
 
@@ -997,7 +1000,7 @@ class Ui_Form(object):
         self.addStudent_btn.setText(QCoreApplication.translate("Form", u"Add Student", None))
         self.excelExport_btn.setText(QCoreApplication.translate("Form", u"Export to Excel", None))
         self.pdfExport_btn.setText(QCoreApplication.translate("Form", u"Export to PDF", None))
-        self.pushButton_2.setText(QCoreApplication.translate("Form", u"Import extra data from xml", None))
+        self.import_xml_btn.setText(QCoreApplication.translate("Form", u"Import extra data from xml", None))
         self.select_gender.setItemText(0, QCoreApplication.translate("Form", u"SELECT GENDER", None))
         self.select_gender.setItemText(1, QCoreApplication.translate("Form", u"Male", None))
         self.select_gender.setItemText(2, QCoreApplication.translate("Form", u"Female", None))

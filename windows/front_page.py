@@ -19,7 +19,7 @@ class Window(QWidget, Ui_Form):
         self.setupUi(self)
         self.setWindowTitle('Sidebar menu')
         self.stackedWidget.setCurrentIndex(2)
-        self.database = Database.get_instance()
+        # self.database = Database.get_instance()
         # set icon_only_widget hidden
         self.icon_only_widget.setHidden(True)
 
@@ -254,8 +254,8 @@ class Window(QWidget, Ui_Form):
                 birthday TEXT,
                 age INT,
                 address TEXT,
-                phone_number VARCHAR(15),
-                email VARCHAR(15)
+                phone_number VARCHAR(20),
+                email VARCHAR(50)
                 )
             """
 
@@ -342,9 +342,9 @@ class Window(QWidget, Ui_Form):
 
         query = f'''select * from students_table
         where
-        ('{class_filter}' = 'SELECT CLASS' or class = '{class_filter}') and
+        ('{class_filter}' = 'SELECT CLASS' or class = '{class_filter}') 
+        and
         ('{gender_filter}' = 'SELECT GENDER' or gender = '{gender_filter}')'''
-
         cursor.execute(query)
 
         data = cursor.fetchall()
@@ -384,7 +384,6 @@ class Window(QWidget, Ui_Form):
 
         # Create a pandas Data Frame with the collected data and the headers
         df = pd.DataFrame(data, columns=self.headers)
-        print(data)
 
         # Save the Data Frame to Excel file
         # Exclude the last column before exporting
@@ -398,6 +397,8 @@ class Window(QWidget, Ui_Form):
             # Save the filtered Dataframe to Excel File at the choosen path
             df_filtered.to_excel(file_path, index=False)
             print(f'Table exported to {file_path}')
+            print(data)
+
 
     # Export to PDF
     def export_to_pdf_StudentsTable(self):
@@ -443,7 +444,7 @@ class Window(QWidget, Ui_Form):
 
 
     def populate_the_filter(self, data):
-        print(data)
+        # print(data)
 
         # Populate the filter with the filtered data
         for row_index, row_data in enumerate(data):

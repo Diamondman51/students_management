@@ -1508,6 +1508,12 @@ QTableWidget {
                 <property name="alternatingRowColors">
                  <bool>true</bool>
                 </property>
+                <property name="verticalScrollMode">
+                 <enum>QAbstractItemView::ScrollPerPixel</enum>
+                </property>
+                <property name="horizontalScrollMode">
+                 <enum>QAbstractItemView::ScrollPerPixel</enum>
+                </property>
                 <column>
                  <property name="text">
                   <string>Name</string>
