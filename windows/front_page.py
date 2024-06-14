@@ -28,12 +28,12 @@ class Window(QWidget, Ui_Form):
         self.icon_only_widget.setHidden(True)
 
         # Hide dropdowns
-        self.students_dropdown.setHidden(True)
-        self.teachers_dropdown.setHidden(True)
-        self.finance_dropdown.setHidden(True)
-        self.students_2.setChecked(True)
-        self.teachers_2.setChecked(True)
-        self.finance_2.setChecked(True)
+        # self.students_dropdown.setHidden(True)
+        # self.teachers_dropdown.setHidden(True)
+        # self.finance_dropdown.setHidden(True)
+        # self.students_2.setChecked(True)
+        # self.teachers_2.setChecked(True)
+        # self.finance_2.setChecked(True)
 
         # Connect buttons to switch to different pages
         self.dashboard_1.clicked.connect(self.switch_to_dashboard_page)
