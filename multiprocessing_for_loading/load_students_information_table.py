@@ -21,7 +21,7 @@ class Students_information_Table(QThread):
 
     def get_data_from_table(self, class_filter, gender_filter):
 
-        cursor = self.side_bar.create_connection().cursor()
+        cursor = self.side_bar.database.create_connection().cursor()
 
         query = f'''select * from students_table
         where

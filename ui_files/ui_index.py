@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'indexkmfgPj.ui'
+## Form generated from reading UI file 'indexZslCKc.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -676,31 +676,82 @@ class Ui_Form(object):
 "}")
         self.gridLayout_4 = QGridLayout(self.page_3)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.label_9 = QLabel(self.page_3)
-        self.label_9.setObjectName(u"label_9")
-        font5 = QFont()
-        font5.setPointSize(25)
-        font5.setBold(True)
-        self.label_9.setFont(font5)
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.select_gender = QComboBox(self.page_3)
+        self.select_gender.addItem("")
+        self.select_gender.addItem("")
+        self.select_gender.addItem("")
+        self.select_gender.setObjectName(u"select_gender")
+        self.select_gender.setMinimumSize(QSize(150, 0))
+        self.select_gender.setStyleSheet(u"QComboBox {\n"
+"	border: 1px solid white;\n"
+"	border-radius: 8;\n"
+"	padding: 1 18 1 15;\n"
+"	color: rgb(255, 255, 255);\n"
+"	background-color: rgb(0, 0, 0);\n"
+"	height: 35;\n"
+"	font-weight: bold;\n"
+"	selection-background-color: #2980B9\n"
+"}")
 
-        self.gridLayout_4.addWidget(self.label_9, 0, 0, 1, 1)
+        self.horizontalLayout_7.addWidget(self.select_gender)
 
-        self.label_19 = QLabel(self.page_3)
-        self.label_19.setObjectName(u"label_19")
-        font6 = QFont()
-        font6.setPointSize(9)
-        self.label_19.setFont(font6)
+        self.select_class = QComboBox(self.page_3)
+        self.select_class.addItem("")
+        self.select_class.addItem("")
+        self.select_class.addItem("")
+        self.select_class.addItem("")
+        self.select_class.addItem("")
+        self.select_class.addItem("")
+        self.select_class.addItem("")
+        self.select_class.addItem("")
+        self.select_class.addItem("")
+        self.select_class.addItem("")
+        self.select_class.addItem("")
+        self.select_class.addItem("")
+        self.select_class.setObjectName(u"select_class")
+        self.select_class.setMinimumSize(QSize(150, 0))
+        self.select_class.setStyleSheet(u"QComboBox {\n"
+"	border: 1px solid white;\n"
+"	border-radius: 8;\n"
+"	padding: 1 18 1 15;\n"
+"	color: rgb(255, 255, 255);\n"
+"	background-color: rgb(0, 0, 0);\n"
+"	height: 35;\n"
+"	font-weight: bold;\n"
+"	selection-background-color: #2980B9\n"
+"}")
 
-        self.gridLayout_4.addWidget(self.label_19, 1, 0, 1, 1)
+        self.horizontalLayout_7.addWidget(self.select_class)
+
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_7.addItem(self.horizontalSpacer_5)
+
+        self.search_student = QLineEdit(self.page_3)
+        self.search_student.setObjectName(u"search_student")
+        self.search_student.setMinimumSize(QSize(400, 38))
+        self.search_student.setMaximumSize(QSize(600, 38))
+        self.search_student.setStyleSheet(u"QLineEdit {\n"
+"	padding-left:20;\n"
+"	border: 1 solid gray;\n"
+"	border-radius: 10;\n"
+"}")
+
+        self.horizontalLayout_7.addWidget(self.search_student)
+
+
+        self.gridLayout_4.addLayout(self.horizontalLayout_7, 3, 0, 1, 1)
 
         self.horizontalLayout_6 = QHBoxLayout()
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.addStudent_btn = QPushButton(self.page_3)
         self.addStudent_btn.setObjectName(u"addStudent_btn")
         self.addStudent_btn.setMinimumSize(QSize(150, 41))
-        font7 = QFont()
-        font7.setBold(True)
-        self.addStudent_btn.setFont(font7)
+        font5 = QFont()
+        font5.setBold(True)
+        self.addStudent_btn.setFont(font5)
         self.addStudent_btn.setStyleSheet(u"QPushButton {\n"
 "	background-color:black;\n"
 "	color: rgb(255, 255, 255);\n"
@@ -772,73 +823,22 @@ class Ui_Form(object):
 
         self.gridLayout_4.addLayout(self.horizontalLayout_6, 2, 0, 1, 1)
 
-        self.horizontalLayout_7 = QHBoxLayout()
-        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.select_gender = QComboBox(self.page_3)
-        self.select_gender.addItem("")
-        self.select_gender.addItem("")
-        self.select_gender.addItem("")
-        self.select_gender.setObjectName(u"select_gender")
-        self.select_gender.setMinimumSize(QSize(150, 0))
-        self.select_gender.setStyleSheet(u"QComboBox {\n"
-"	border: 1px solid white;\n"
-"	border-radius: 8;\n"
-"	padding: 1 18 1 15;\n"
-"	color: rgb(255, 255, 255);\n"
-"	background-color: rgb(0, 0, 0);\n"
-"	height: 35;\n"
-"	font-weight: bold;\n"
-"	selection-background-color: #2980B9\n"
-"}")
+        self.label_9 = QLabel(self.page_3)
+        self.label_9.setObjectName(u"label_9")
+        font6 = QFont()
+        font6.setPointSize(25)
+        font6.setBold(True)
+        self.label_9.setFont(font6)
 
-        self.horizontalLayout_7.addWidget(self.select_gender)
+        self.gridLayout_4.addWidget(self.label_9, 0, 0, 1, 1)
 
-        self.select_class = QComboBox(self.page_3)
-        self.select_class.addItem("")
-        self.select_class.addItem("")
-        self.select_class.addItem("")
-        self.select_class.addItem("")
-        self.select_class.addItem("")
-        self.select_class.addItem("")
-        self.select_class.addItem("")
-        self.select_class.addItem("")
-        self.select_class.addItem("")
-        self.select_class.addItem("")
-        self.select_class.addItem("")
-        self.select_class.addItem("")
-        self.select_class.setObjectName(u"select_class")
-        self.select_class.setMinimumSize(QSize(150, 0))
-        self.select_class.setStyleSheet(u"QComboBox {\n"
-"	border: 1px solid white;\n"
-"	border-radius: 8;\n"
-"	padding: 1 18 1 15;\n"
-"	color: rgb(255, 255, 255);\n"
-"	background-color: rgb(0, 0, 0);\n"
-"	height: 35;\n"
-"	font-weight: bold;\n"
-"	selection-background-color: #2980B9\n"
-"}")
+        self.label_19 = QLabel(self.page_3)
+        self.label_19.setObjectName(u"label_19")
+        font7 = QFont()
+        font7.setPointSize(9)
+        self.label_19.setFont(font7)
 
-        self.horizontalLayout_7.addWidget(self.select_class)
-
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_7.addItem(self.horizontalSpacer_5)
-
-        self.search_student = QLineEdit(self.page_3)
-        self.search_student.setObjectName(u"search_student")
-        self.search_student.setMinimumSize(QSize(400, 38))
-        self.search_student.setMaximumSize(QSize(600, 38))
-        self.search_student.setStyleSheet(u"QLineEdit {\n"
-"	padding-left:20;\n"
-"	border: 1 solid gray;\n"
-"	border-radius: 10;\n"
-"}")
-
-        self.horizontalLayout_7.addWidget(self.search_student)
-
-
-        self.gridLayout_4.addLayout(self.horizontalLayout_7, 3, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.label_19, 1, 0, 1, 1)
 
         self.studentInfo_table = QTableWidget(self.page_3)
         if (self.studentInfo_table.columnCount() < 10):
@@ -879,6 +879,24 @@ class Ui_Form(object):
         self.studentInfo_table.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
 
         self.gridLayout_4.addWidget(self.studentInfo_table, 4, 0, 1, 1)
+
+        self.horizontalLayout_8 = QHBoxLayout()
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_8.addItem(self.horizontalSpacer_6)
+
+        self.for_btn_tools = QHBoxLayout()
+        self.for_btn_tools.setObjectName(u"for_btn_tools")
+
+        self.horizontalLayout_8.addLayout(self.for_btn_tools)
+
+        self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_8.addItem(self.horizontalSpacer_7)
+
+
+        self.gridLayout_4.addLayout(self.horizontalLayout_8, 5, 0, 1, 1)
 
         self.stackedWidget.addWidget(self.page_3)
         self.page_4 = QWidget()
@@ -1014,12 +1032,6 @@ class Ui_Form(object):
         self.label_6.setText("")
         self.label_7.setText(QCoreApplication.translate("Form", u"Dashboard", None))
         self.label_8.setText(QCoreApplication.translate("Form", u"Institution", None))
-        self.label_9.setText(QCoreApplication.translate("Form", u"Student info", None))
-        self.label_19.setText(QCoreApplication.translate("Form", u"Welcome to the students information page", None))
-        self.addStudent_btn.setText(QCoreApplication.translate("Form", u"Add Student", None))
-        self.excelExport_btn.setText(QCoreApplication.translate("Form", u"Export to Excel", None))
-        self.pdfExport_btn.setText(QCoreApplication.translate("Form", u"Export to PDF", None))
-        self.import_xml_btn.setText(QCoreApplication.translate("Form", u"Import extra data from xml", None))
         self.select_gender.setItemText(0, QCoreApplication.translate("Form", u"SELECT GENDER", None))
         self.select_gender.setItemText(1, QCoreApplication.translate("Form", u"Male", None))
         self.select_gender.setItemText(2, QCoreApplication.translate("Form", u"Female", None))
@@ -1038,6 +1050,12 @@ class Ui_Form(object):
         self.select_class.setItemText(11, QCoreApplication.translate("Form", u"Grade 11", None))
 
         self.search_student.setPlaceholderText(QCoreApplication.translate("Form", u"Search Student...", None))
+        self.addStudent_btn.setText(QCoreApplication.translate("Form", u"Add Student", None))
+        self.excelExport_btn.setText(QCoreApplication.translate("Form", u"Export to Excel", None))
+        self.pdfExport_btn.setText(QCoreApplication.translate("Form", u"Export to PDF", None))
+        self.import_xml_btn.setText(QCoreApplication.translate("Form", u"Import extra data from xml", None))
+        self.label_9.setText(QCoreApplication.translate("Form", u"Student info", None))
+        self.label_19.setText(QCoreApplication.translate("Form", u"Welcome to the students information page", None))
         ___qtablewidgetitem = self.studentInfo_table.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("Form", u"Name", None));
         ___qtablewidgetitem1 = self.studentInfo_table.horizontalHeaderItem(1)

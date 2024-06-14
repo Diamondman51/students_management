@@ -111,4 +111,4 @@ class DoubleButtonWidgetStudents(QWidget):
     def get_instance(cls):
         if not cls.instance:
             cls.instance = cls(0, ('Java', '24/U/M0690', 'Male', 'Grade 1', '2000-01-01', 24, 'fsefsfezbtdrtbebdrtbdihusuiweuinecnesnwcknjfolsolikvdmnsefnklkjnsjkdxvbjmn cxvmn cx', '894131213', 'dadawdsefgrdsgdrgdrgd'))
-        return cls.instance
+        return
