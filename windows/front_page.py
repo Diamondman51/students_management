@@ -118,6 +118,7 @@ class Window(QWidget, Ui_Form):
 
         # Add button tools
         self.button_tools = Button_tools()
+
         self.add_to_layout()
 
     # Methods to switch to different pages
@@ -449,4 +450,3 @@ class Window(QWidget, Ui_Form):
     # Adding additional widget to for_btn_tools
     def add_to_layout(self):
         self.for_btn_tools.addWidget(self.button_tools)
-        self.budgets.show()
