@@ -24,24 +24,32 @@ class Database:
         )
 
         self.cursor = self.conn.cursor()
-        self.create_tables()
+        self.create_students_table()
 
     # Create tables
-    def create_tables(self):
-        sql = """
-        CREATE TABLE IF NOT EXISTS students_table(
-            student_id varchar(15) Primary Key,
-            names varchar(100),
-            gender bool,
-            class integer,
-            birthday date,
-            age integer,
-            address varchar(200),
-            phone_number varchar(15),
-            email varchar(15)
-        )"""
-        self.cursor.execute(sql)
+    def create_students_table(self):
+
+        # The query
+
+        create_students_table_query = f"""
+                 create table if not exists students_table(
+                 names TEXT,
+                 student_id VARCHAR(15) PRIMARY KEY,
+                 gender TEXT,
+                 class TEXT,
+                 birthday TEXT,
+                 age INT,
+                 address TEXT,
+                 phone_number VARCHAR(20),
+                 email VARCHAR(50)
+                 )
+             """
+
+        self.cursor.execute(create_students_table_query)
+
+        # Commit changes and close the connection
         self.conn.commit()
+        self.conn.close()
 
     @classmethod
     def get_instance(cls):
@@ -95,6 +103,23 @@ class Database:
         self.cursor.execute(sql, parameters)
         return self.cursor.fetchall()
 
+    def create_connection(self):
+        # Establish connection
+        database = 'school management'
+        host = 'localhost'
+        user = 'postgres'
+        password = 'Zshavkatov61@'
+        port = '5432'
+
+        self.conn = psycopg2.connect(
+            database=database,
+            host=host,
+            user=user,
+            password=password,
+            port=port
+        )
+
+        return self.conn
 
 
 # f = Database.get_instance()

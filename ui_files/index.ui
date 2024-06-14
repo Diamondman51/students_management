@@ -1188,168 +1188,6 @@ QComboBox:hover {
 }</string>
              </property>
              <layout class="QGridLayout" name="gridLayout_4">
-              <item row="0" column="0">
-               <widget class="QLabel" name="label_9">
-                <property name="font">
-                 <font>
-                  <pointsize>25</pointsize>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Student info</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_19">
-                <property name="font">
-                 <font>
-                  <pointsize>9</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Welcome to the students information page</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <layout class="QHBoxLayout" name="horizontalLayout_6">
-                <item>
-                 <widget class="QPushButton" name="addStudent_btn">
-                  <property name="minimumSize">
-                   <size>
-                    <width>150</width>
-                    <height>41</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <pointsize>-1</pointsize>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QPushButton {
-	background-color:black;
-	color: rgb(255, 255, 255);
-	border: none;
-	border-radius: 8px;
-	font-weight: bold;
-	font-size:15px;
-}
-</string>
-                  </property>
-                  <property name="text">
-                   <string>Add Student</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/add student.png</normaloff>:/images/add student.png</iconset>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="excelExport_btn">
-                  <property name="minimumSize">
-                   <size>
-                    <width>150</width>
-                    <height>41</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QPushButton {
-	background-color:#34D481;
-	color: rgb(255, 255, 255);
-	border: none;
-	border-radius: 8;
-	font-weight: bold;
-	font-size:15px;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Export to Excel</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/excel.png</normaloff>:/images/excel.png</iconset>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pdfExport_btn">
-                  <property name="minimumSize">
-                   <size>
-                    <width>150</width>
-                    <height>41</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QPushButton {
-	background-color:#ff4e4e;
-	color: rgb(255, 255, 255);
-	border: none;
-	border-radius: 8;
-	font-weight: bold;
-	font-size:15px;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Export to PDF</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/images/pdf.png</normaloff>:/images/pdf.png</iconset>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="import_xml_btn">
-                  <property name="minimumSize">
-                   <size>
-                    <width>220</width>
-                    <height>41</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>220</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QPushButton {
-	background-color:rgb(175, 172, 255);
-	color: rgb(255, 255, 255);
-	border: none;
-	border-radius: 8;
-	font-weight: bold;
-	font-size:15px;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Import extra data from xml</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <spacer name="horizontalSpacer_4">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::MinimumExpanding</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>100</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </item>
               <item row="3" column="0">
                <layout class="QHBoxLayout" name="horizontalLayout_7">
                 <item>
@@ -1512,6 +1350,168 @@ QComboBox:hover {
                 </item>
                </layout>
               </item>
+              <item row="2" column="0">
+               <layout class="QHBoxLayout" name="horizontalLayout_6">
+                <item>
+                 <widget class="QPushButton" name="addStudent_btn">
+                  <property name="minimumSize">
+                   <size>
+                    <width>150</width>
+                    <height>41</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>-1</pointsize>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton {
+	background-color:black;
+	color: rgb(255, 255, 255);
+	border: none;
+	border-radius: 8px;
+	font-weight: bold;
+	font-size:15px;
+}
+</string>
+                  </property>
+                  <property name="text">
+                   <string>Add Student</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/images/add student.png</normaloff>:/images/add student.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="excelExport_btn">
+                  <property name="minimumSize">
+                   <size>
+                    <width>150</width>
+                    <height>41</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton {
+	background-color:#34D481;
+	color: rgb(255, 255, 255);
+	border: none;
+	border-radius: 8;
+	font-weight: bold;
+	font-size:15px;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Export to Excel</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/images/excel.png</normaloff>:/images/excel.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pdfExport_btn">
+                  <property name="minimumSize">
+                   <size>
+                    <width>150</width>
+                    <height>41</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton {
+	background-color:#ff4e4e;
+	color: rgb(255, 255, 255);
+	border: none;
+	border-radius: 8;
+	font-weight: bold;
+	font-size:15px;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Export to PDF</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/images/pdf.png</normaloff>:/images/pdf.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="import_xml_btn">
+                  <property name="minimumSize">
+                   <size>
+                    <width>220</width>
+                    <height>41</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>220</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton {
+	background-color:rgb(175, 172, 255);
+	color: rgb(255, 255, 255);
+	border: none;
+	border-radius: 8;
+	font-weight: bold;
+	font-size:15px;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Import extra data from xml</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_4">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::MinimumExpanding</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>100</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_9">
+                <property name="font">
+                 <font>
+                  <pointsize>25</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Student info</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_19">
+                <property name="font">
+                 <font>
+                  <pointsize>9</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Welcome to the students information page</string>
+                </property>
+               </widget>
+              </item>
               <item row="4" column="0">
                <widget class="QTableWidget" name="studentInfo_table">
                 <property name="styleSheet">
@@ -1586,6 +1586,39 @@ QTableWidget {
                  </property>
                 </column>
                </widget>
+              </item>
+              <item row="5" column="0">
+               <layout class="QHBoxLayout" name="horizontalLayout_8">
+                <item>
+                 <spacer name="horizontalSpacer_6">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="for_btn_tools"/>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_7">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
               </item>
              </layout>
             </widget>

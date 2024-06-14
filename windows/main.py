@@ -7,7 +7,7 @@ app = QApplication()
 
 # login = Login()
 # result = login.exec()
-#
+# #
 # if result == Login.Accepted:
 window = Window()
 window.show()

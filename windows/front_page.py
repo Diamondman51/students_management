@@ -5,10 +5,12 @@ from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
 
+from Buttons.Button_tools import Button_tools
 from Buttons.Double_button_widgets import DoubleButtonWidgetStudents
 
 from multiprocessing_for_loading.load_students_information_table import Students_information_Table
 from ui_files.ui_index import Ui_Form
+from windows.db_manager import Database
 from windows.studentDialog import StudentDialog
 
 import pandas as pd
@@ -23,7 +25,7 @@ class Window(QWidget, Ui_Form):
         self.setupUi(self)
         self.setWindowTitle('Sidebar menu')
         self.stackedWidget.setCurrentIndex(2)
-        # self.database = Database.get_instance()
+        self.database = Database.get_instance()
         # set icon_only_widget hidden
         self.icon_only_widget.setHidden(True)
 
@@ -31,9 +33,9 @@ class Window(QWidget, Ui_Form):
         self.students_dropdown.setHidden(True)
         self.teachers_dropdown.setHidden(True)
         self.finance_dropdown.setHidden(True)
-        self.students_2.setChecked(True)
-        self.teachers_2.setChecked(True)
-        self.finance_2.setChecked(True)
+        # self.students_2.setChecked(True)
+        # self.teachers_2.setChecked(True)
+        # self.finance_2.setChecked(True)
 
         # Connect buttons to switch to different pages
         self.dashboard_1.clicked.connect(self.switch_to_dashboard_page)
@@ -64,7 +66,7 @@ class Window(QWidget, Ui_Form):
         self.finance_1.clicked.connect(self.finances_context_menu)
 
         # connect to sqlite and create database if it does not exist
-        self.create_connection()
+        self.database.create_connection()
 
         # Create students table
         self.create_students_table()
@@ -114,6 +116,9 @@ class Window(QWidget, Ui_Form):
         # Import XML
         self.import_xml_btn.clicked.connect(self.import_xml_file)
 
+        # Add button tools
+        self.button_tools = Button_tools()
+        self.add_to_layout()
 
     # Methods to switch to different pages
 
@@ -215,43 +220,9 @@ class Window(QWidget, Ui_Form):
         if text == 'Business Overview':
             self.switch_to_finance_business_overview_page()
 
-    # database_creation
-    def create_connection(self):
-        # Establish connection
-        database = 'school management'
-        host = 'localhost'
-        user = 'postgres'
-        password = 'Zshavkatov61@'
-        port = '5432'
-
-        self.conn = psycopg2.connect(
-            database=database,
-            host=host,
-            user=user,
-            password=password,
-            port=port
-        )
-
-        # Craete a cursor to execute PostgreSQL
-
-        corsor = self.conn.cursor()
-
-        # Create the database if it does not exist
-        # corsor.execute(f'Create database IF NOT EXISTS {database}')
-        #
-        # self.conn = psycopg2.connect(
-        #     database=database,
-        #     host=host,
-        #     user=user,
-        #     password=password,
-        #     port=port
-        # )
-
-        return self.conn
-
     # CREATE STUDENTS TABLE
     def create_students_table(self):
-        cursor = self.create_connection().cursor()
+        cursor = self.database.create_connection().cursor()
 
         # The query
 
@@ -272,8 +243,8 @@ class Window(QWidget, Ui_Form):
         cursor.execute(create_students_table_query)
 
         # Commit changes and close the connection
-        self.conn.commit()
-        self.conn.close()
+        self.database.conn.commit()
+        self.database.conn.close()
 
     def init_table_settings(self):
         column_names = ["Name", "Id", "Gender", "Class", "birthday", "age", "address", "phone_number", "email"]
@@ -350,7 +321,7 @@ class Window(QWidget, Ui_Form):
 
     def get_data_from_table(self, class_filter, gender_filter):
 
-        cursor = self.create_connection().cursor()
+        cursor = self.database.create_connection().cursor()
 
         query = f'''select * from students_table
         where
@@ -373,7 +344,7 @@ class Window(QWidget, Ui_Form):
         search_query = self.search_student.text()
 
         # Execute the SQL query
-        cursor = self.create_connection().cursor()
+        cursor = self.database.create_connection().cursor()
         sql_query = f"""select * from students_table
                     where lower(names) like lower('{search_query}%')"""
         cursor.execute(sql_query)
@@ -474,3 +445,8 @@ class Window(QWidget, Ui_Form):
 
     def import_xml_file(self):
         data = XML_import(self)
+
+    # Adding additional widget to for_btn_tools
+    def add_to_layout(self):
+        self.for_btn_tools.addWidget(self.button_tools)
+        self.budgets.show()
