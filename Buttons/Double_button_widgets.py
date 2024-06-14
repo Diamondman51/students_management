@@ -18,7 +18,7 @@ class DoubleButtonWidgetStudents(QWidget):
         self.row_data = row_data
         self.side_bar = SideBar # Store a reference to MySideBar
 
-        # Get student varuables from the tuple
+        # Get student variables from the tuple
         self.student_name = self.row_data[0]
         self.student_id = self.row_data[1]
 
