@@ -1597,7 +1597,7 @@ QTableWidget {
                   <property name="sizeHint" stdset="0">
                    <size>
                     <width>40</width>
-                    <height>20</height>
+                    <height>30</height>
                    </size>
                   </property>
                  </spacer>
@@ -1613,7 +1613,7 @@ QTableWidget {
                   <property name="sizeHint" stdset="0">
                    <size>
                     <width>40</width>
-                    <height>20</height>
+                    <height>30</height>
                    </size>
                   </property>
                  </spacer>
