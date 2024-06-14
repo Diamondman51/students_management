@@ -447,6 +447,3 @@ class Window(QWidget, Ui_Form):
         data = XML_import(self)
 
     # Adding additional widget to for_btn_tools
-    def add_to_layout(self):
-        self.for_btn_tools.addWidget(self.button_tools)
-        self.budgets.show()
