@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'indexYfXNrM.ui'
+## Form generated from reading UI file 'indexHCPvsT.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -803,8 +803,8 @@ class Ui_Form(object):
 
         self.import_xml_btn = QPushButton(self.page_3)
         self.import_xml_btn.setObjectName(u"import_xml_btn")
-        self.import_xml_btn.setMinimumSize(QSize(220, 41))
-        self.import_xml_btn.setMaximumSize(QSize(220, 16777215))
+        self.import_xml_btn.setMinimumSize(QSize(150, 41))
+        self.import_xml_btn.setMaximumSize(QSize(150, 16777215))
         self.import_xml_btn.setStyleSheet(u"QPushButton {\n"
 "	background-color:rgb(175, 172, 255);\n"
 "	color: rgb(255, 255, 255);\n"
@@ -815,6 +815,21 @@ class Ui_Form(object):
 "}")
 
         self.horizontalLayout_6.addWidget(self.import_xml_btn)
+
+        self.import_csv_btn = QPushButton(self.page_3)
+        self.import_csv_btn.setObjectName(u"import_csv_btn")
+        self.import_csv_btn.setMinimumSize(QSize(150, 41))
+        self.import_csv_btn.setMaximumSize(QSize(150, 16777215))
+        self.import_csv_btn.setStyleSheet(u"QPushButton {\n"
+"	background-color:rgb(255, 150, 98);\n"
+"	color: rgb(255, 255, 255);\n"
+"	border: none;\n"
+"	border-radius: 8;\n"
+"	font-weight: bold;\n"
+"	font-size:15px;\n"
+"}")
+
+        self.horizontalLayout_6.addWidget(self.import_csv_btn)
 
         self.horizontalSpacer_4 = QSpacerItem(100, 20, QSizePolicy.MinimumExpanding, QSizePolicy.Minimum)
 
@@ -863,6 +878,22 @@ class Ui_Form(object):
         self.studentInfo_table.setHorizontalHeaderItem(8, __qtablewidgetitem8)
         __qtablewidgetitem9 = QTableWidgetItem()
         self.studentInfo_table.setHorizontalHeaderItem(9, __qtablewidgetitem9)
+        if (self.studentInfo_table.rowCount() < 7):
+            self.studentInfo_table.setRowCount(7)
+        __qtablewidgetitem10 = QTableWidgetItem()
+        self.studentInfo_table.setVerticalHeaderItem(0, __qtablewidgetitem10)
+        __qtablewidgetitem11 = QTableWidgetItem()
+        self.studentInfo_table.setVerticalHeaderItem(1, __qtablewidgetitem11)
+        __qtablewidgetitem12 = QTableWidgetItem()
+        self.studentInfo_table.setVerticalHeaderItem(2, __qtablewidgetitem12)
+        __qtablewidgetitem13 = QTableWidgetItem()
+        self.studentInfo_table.setVerticalHeaderItem(3, __qtablewidgetitem13)
+        __qtablewidgetitem14 = QTableWidgetItem()
+        self.studentInfo_table.setVerticalHeaderItem(4, __qtablewidgetitem14)
+        __qtablewidgetitem15 = QTableWidgetItem()
+        self.studentInfo_table.setVerticalHeaderItem(5, __qtablewidgetitem15)
+        __qtablewidgetitem16 = QTableWidgetItem()
+        self.studentInfo_table.setVerticalHeaderItem(6, __qtablewidgetitem16)
         self.studentInfo_table.setObjectName(u"studentInfo_table")
         self.studentInfo_table.setStyleSheet(u"QHeaderView::section {\n"
 "	font-weight: bold;\n"
@@ -871,9 +902,10 @@ class Ui_Form(object):
 "}\n"
 "\n"
 "QTableWidget {\n"
-"	alternate-background-color: #B0BDFB;\n"
-"	background-color:#F4F9FA;\n"
+"	alternate-background-color: rgb(148, 194, 255);\n"
+"	background-color:rgb(255, 255, 255);\n"
 "}")
+        self.studentInfo_table.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.studentInfo_table.setAlternatingRowColors(True)
         self.studentInfo_table.setVerticalScrollMode(QAbstractItemView.ScrollPerPixel)
         self.studentInfo_table.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
@@ -988,8 +1020,8 @@ class Ui_Form(object):
         self.sign_out_2.toggled.connect(self.sign_out_1.setChecked)
         self.sign_out_1.toggled.connect(Form.close)
         self.sign_out_2.toggled.connect(Form.close)
-        self.pushButton.toggled.connect(self.icon_text_widget.setHidden)
-        self.pushButton.toggled.connect(self.icon_only_widget.setVisible)
+        self.pushButton.toggled.connect(self.icon_text_widget.setVisible)
+        self.pushButton.toggled.connect(self.icon_only_widget.setHidden)
 
         self.stackedWidget.setCurrentIndex(2)
 
@@ -1053,7 +1085,8 @@ class Ui_Form(object):
         self.addStudent_btn.setText(QCoreApplication.translate("Form", u"Add Student", None))
         self.excelExport_btn.setText(QCoreApplication.translate("Form", u"Export to Excel", None))
         self.pdfExport_btn.setText(QCoreApplication.translate("Form", u"Export to PDF", None))
-        self.import_xml_btn.setText(QCoreApplication.translate("Form", u"Import extra data from xml", None))
+        self.import_xml_btn.setText(QCoreApplication.translate("Form", u"Import from xml", None))
+        self.import_csv_btn.setText(QCoreApplication.translate("Form", u"Import from csv", None))
         self.label_9.setText(QCoreApplication.translate("Form", u"Student info", None))
         self.label_19.setText(QCoreApplication.translate("Form", u"Welcome to the students information page", None))
         ___qtablewidgetitem = self.studentInfo_table.horizontalHeaderItem(0)
@@ -1076,6 +1109,20 @@ class Ui_Form(object):
         ___qtablewidgetitem8.setText(QCoreApplication.translate("Form", u"Email", None));
         ___qtablewidgetitem9 = self.studentInfo_table.horizontalHeaderItem(9)
         ___qtablewidgetitem9.setText(QCoreApplication.translate("Form", u"Actions", None));
+        ___qtablewidgetitem10 = self.studentInfo_table.verticalHeaderItem(0)
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("Form", u"dada", None));
+        ___qtablewidgetitem11 = self.studentInfo_table.verticalHeaderItem(1)
+        ___qtablewidgetitem11.setText(QCoreApplication.translate("Form", u"New Row", None));
+        ___qtablewidgetitem12 = self.studentInfo_table.verticalHeaderItem(2)
+        ___qtablewidgetitem12.setText(QCoreApplication.translate("Form", u"dad", None));
+        ___qtablewidgetitem13 = self.studentInfo_table.verticalHeaderItem(3)
+        ___qtablewidgetitem13.setText(QCoreApplication.translate("Form", u"a", None));
+        ___qtablewidgetitem14 = self.studentInfo_table.verticalHeaderItem(4)
+        ___qtablewidgetitem14.setText(QCoreApplication.translate("Form", u"dada", None));
+        ___qtablewidgetitem15 = self.studentInfo_table.verticalHeaderItem(5)
+        ___qtablewidgetitem15.setText(QCoreApplication.translate("Form", u"dadaf", None));
+        ___qtablewidgetitem16 = self.studentInfo_table.verticalHeaderItem(6)
+        ___qtablewidgetitem16.setText(QCoreApplication.translate("Form", u"sesegse", None));
         self.label_10.setText(QCoreApplication.translate("Form", u"Student payment", None))
         self.label_11.setText(QCoreApplication.translate("Form", u"Student transaction", None))
         self.label_12.setText(QCoreApplication.translate("Form", u"Teacher info", None))

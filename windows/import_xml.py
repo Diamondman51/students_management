@@ -6,8 +6,7 @@ from PySide6.QtWidgets import QFileDialog
 
 
 class XML_import:
-    def __init__(self, side_bar):
-        self.side_bar = side_bar
+    def __init__(self):
         self.parse_the_file()
 
     def parse_the_file(self):
@@ -46,7 +45,7 @@ class XML_import:
         cursor = conn.cursor()
 
         for data in xml_data:
-            # print(i)
+            # print(data)
             query = f'''insert into students_table (student_id, names, email, gender, phone_number, address, birthday)
             values {data}
             '''
@@ -55,4 +54,3 @@ class XML_import:
             conn.commit()
         print('Success')
         conn.close()
-        self.side_bar.reloadStudentstable_data()

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'designerJsWXam.ui'
+## Form generated from reading UI file 'button_toolsmEzMjV.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -22,30 +22,28 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(503, 26)
-        self.widget = QWidget(Form)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(0, 0, 501, 26))
-        self.horizontalLayout = QHBoxLayout(self.widget)
+        Form.resize(446, 44)
+        self.horizontalLayout_2 = QHBoxLayout(Form)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.label = QLabel(self.widget)
+        self.label = QLabel(Form)
         self.label.setObjectName(u"label")
         self.label.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout.addWidget(self.label)
 
-        self.btn_first = QPushButton(self.widget)
+        self.btn_first = QPushButton(Form)
         self.btn_first.setObjectName(u"btn_first")
 
         self.horizontalLayout.addWidget(self.btn_first)
 
-        self.btn_previous = QPushButton(self.widget)
+        self.btn_previous = QPushButton(Form)
         self.btn_previous.setObjectName(u"btn_previous")
 
         self.horizontalLayout.addWidget(self.btn_previous)
 
-        self.lineEdit = QLineEdit(self.widget)
+        self.lineEdit = QLineEdit(Form)
         self.lineEdit.setObjectName(u"lineEdit")
         self.lineEdit.setMaximumSize(QSize(60, 16777215))
         self.lineEdit.setEchoMode(QLineEdit.Normal)
@@ -55,21 +53,24 @@ class Ui_Form(object):
 
         self.horizontalLayout.addWidget(self.lineEdit)
 
-        self.btn_next = QPushButton(self.widget)
+        self.btn_next = QPushButton(Form)
         self.btn_next.setObjectName(u"btn_next")
 
         self.horizontalLayout.addWidget(self.btn_next)
 
-        self.btn_last = QPushButton(self.widget)
+        self.btn_last = QPushButton(Form)
         self.btn_last.setObjectName(u"btn_last")
 
         self.horizontalLayout.addWidget(self.btn_last)
 
-        self.label_2 = QLabel(self.widget)
+        self.label_2 = QLabel(Form)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout.addWidget(self.label_2)
+
+
+        self.horizontalLayout_2.addLayout(self.horizontalLayout)
 
 
         self.retranslateUi(Form)

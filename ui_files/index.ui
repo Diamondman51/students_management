@@ -1444,13 +1444,13 @@ QComboBox:hover {
                  <widget class="QPushButton" name="import_xml_btn">
                   <property name="minimumSize">
                    <size>
-                    <width>220</width>
+                    <width>150</width>
                     <height>41</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>220</width>
+                    <width>150</width>
                     <height>16777215</height>
                    </size>
                   </property>
@@ -1465,7 +1465,36 @@ QComboBox:hover {
 }</string>
                   </property>
                   <property name="text">
-                   <string>Import extra data from xml</string>
+                   <string>Import from xml</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="import_csv_btn">
+                  <property name="minimumSize">
+                   <size>
+                    <width>150</width>
+                    <height>41</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton {
+	background-color:rgb(255, 150, 98);
+	color: rgb(255, 255, 255);
+	border: none;
+	border-radius: 8;
+	font-weight: bold;
+	font-size:15px;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Import from csv</string>
                   </property>
                  </widget>
                 </item>
@@ -1522,9 +1551,12 @@ QComboBox:hover {
 }
 
 QTableWidget {
-	alternate-background-color: #B0BDFB;
-	background-color:#F4F9FA;
+	alternate-background-color: rgb(148, 194, 255);
+	background-color:rgb(255, 255, 255);
 }</string>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::NoEditTriggers</set>
                 </property>
                 <property name="alternatingRowColors">
                  <bool>true</bool>
@@ -2013,7 +2045,7 @@ QTableWidget {
    <sender>pushButton</sender>
    <signal>toggled(bool)</signal>
    <receiver>icon_text_widget</receiver>
-   <slot>setHidden(bool)</slot>
+   <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>333</x>
@@ -2029,7 +2061,7 @@ QTableWidget {
    <sender>pushButton</sender>
    <signal>toggled(bool)</signal>
    <receiver>icon_only_widget</receiver>
-   <slot>setVisible(bool)</slot>
+   <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>362</x>

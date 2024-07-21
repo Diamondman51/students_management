@@ -11,11 +11,12 @@ from Buttons.Double_button_widgets import DoubleButtonWidgetStudents
 from multiprocessing_for_loading.load_students_information_table import Students_information_Table
 from ui_files.ui_index import Ui_Form
 from windows.db_manager import Database
+from windows.import_csv import CSV_import
 from windows.studentDialog import StudentDialog
 
 import pandas as pd
 
-from windows.xml_import import XML_import
+from windows.import_xml import XML_import
 
 
 class Window(QWidget, Ui_Form):
@@ -115,6 +116,9 @@ class Window(QWidget, Ui_Form):
 
         # Import XML
         self.import_xml_btn.clicked.connect(self.import_xml_file)
+
+        # Import CSV
+        self.import_csv_btn.clicked.connect(self.import_csv_file)
 
         # Add button tools
         self.button_tools = Button_tools()
@@ -257,8 +261,6 @@ class Window(QWidget, Ui_Form):
         self.studentInfo_table.setColumnWidth(4, 100)
         self.studentInfo_table.setColumnWidth(5, 50)
         self.studentInfo_table.setColumnWidth(6, 100)
-        self.studentInfo_table.setColumnWidth(7, 200)
-        self.studentInfo_table.setColumnWidth(7, 100)
         self.studentInfo_table.setColumnWidth(7, 100)
 
         self.studentInfo_table.setHorizontalHeaderLabels(column_names)
@@ -425,7 +427,6 @@ class Window(QWidget, Ui_Form):
 
             print(f'Table exported to {file_path}')
 
-
     def populate_the_filter(self, data):
         # print(data)
 
@@ -444,6 +445,13 @@ class Window(QWidget, Ui_Form):
             self.studentInfo_table.setRowHeight(row_index, 50)
 
     def import_xml_file(self):
-        data = XML_import(self)
+        data = XML_import()
+        self.reloadStudentstable_data()
 
     # Adding additional widget to for_btn_tools
+    def add_to_layout(self):
+        self.for_btn_tools.addWidget(self.button_tools)
+
+    def import_csv_file(self):
+        data = CSV_import()
+        self.reloadStudentstable_data()
