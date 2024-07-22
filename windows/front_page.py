@@ -380,7 +380,7 @@ class Window(QWidget, Ui_Form):
 
         if file_path:
             # Save the filtered Dataframe to Excel File at the choosen path
-            df_filtered.to_excel(file_path, index=False)
+            df.to_excel(file_path, index=False)
             print(f'Table exported to {file_path}')
             print(data)
 
