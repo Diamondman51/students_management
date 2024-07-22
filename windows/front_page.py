@@ -453,5 +453,6 @@ class Window(QWidget, Ui_Form):
         self.for_btn_tools.addWidget(self.button_tools)
 
     def import_csv_file(self):
+        # No need for data
         data = CSV_import()
         self.reloadStudentstable_data()
