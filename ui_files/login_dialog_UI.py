@@ -212,5 +212,5 @@ class Ui_Dialog(object):
         self.label_2.setText(QCoreApplication.translate("Dialog", u"Email", None))
         self.label.setText(QCoreApplication.translate("Dialog", u"Login", None))
         self.sign_in_btn.setText(QCoreApplication.translate("Dialog", u"Sign in", None))
-    # retranslateUi
+
 

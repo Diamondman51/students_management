@@ -10,7 +10,7 @@ class XML_import:
         self.parse_the_file()
 
     def parse_the_file(self):
-        file_path, _ = QFileDialog.getOpenFileName(None, "Select File", "", "XML Files (*.xml);;All Files (*)")
+        file_path, _ = QFileDialog.getOpenFileName(None, "Select File", "", "XML File (*.xml);;All Files (*)")
 
         if file_path:
 
@@ -21,7 +21,7 @@ class XML_import:
             # for record in dataset:
             #     print(record.tag, record[0].text)
 
-            data = [(record[0].text, record[1].text, record[2].text, record[3].text,
+            data = [( record[1].text, record[2].text, record[3].text,
                      record[4].text, record[5].text, strftime('%Y-%m-%d', strptime(record[6].text, '%m/%d/%Y')))
                     for record in dataset]
 
@@ -30,7 +30,7 @@ class XML_import:
     def populate(self, xml_data):
         database = 'school management'
         user = 'postgres'
-        password = 'Zshavkatov61@'
+        password = 'Zshavkatov61'
         host = 'localhost'
         port = '5432'
 
@@ -46,7 +46,7 @@ class XML_import:
 
         for data in xml_data:
             # print(data)
-            query = f'''insert into students_table (student_id, names, email, gender, phone_number, address, birthday)
+            query = f'''insert into students_table (names, email, gender, phone_number, address, birthday)
             values {data}
             '''
 

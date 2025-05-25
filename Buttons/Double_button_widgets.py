@@ -45,10 +45,10 @@ class DoubleButtonWidgetStudents(QWidget):
         self.delete_button.clicked.connect(self.delete_clicked)
 
         # Set Icons for the buttons
-        icon = QIcon(r'../resources/images/edit.png')
+        icon = QIcon(r'resources/images/edit.png')
         self.edit_button.setIcon(icon)
 
-        icon2 = QIcon('../resources/images/delete.png')
+        icon2 = QIcon(r'resources/images/delete.png')
         self.delete_button.setIcon(icon2)
 
         layout.addWidget(self.edit_button)

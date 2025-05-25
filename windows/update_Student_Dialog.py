@@ -57,7 +57,7 @@ class Update_studentDialog(Ui_Update_StudentsDialog, QDialog):
         database = 'school management'
         host = 'localhost'
         user = 'postgres'
-        password = 'Zshavkatov61@'
+        password = 'Zshavkatov61'
         port = '5432'
 
         self.conn = psycopg2.connect(

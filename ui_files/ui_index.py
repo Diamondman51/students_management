@@ -28,7 +28,6 @@ class Ui_Form(object):
             Form.setObjectName(u"Form")
         Form.resize(1231, 883)
         Form.setMinimumSize(QSize(1231, 883))
-        Form.setMaximumSize(QSize(12333, 883))
         self.gridLayout_2 = QGridLayout(Form)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout = QGridLayout()

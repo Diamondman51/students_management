@@ -1,6 +1,7 @@
+import time
 import psycopg2
-from PySide6.QtGui import QAction
-from PySide6.QtWidgets import QWidget, QMenu, QAbstractItemView, QTableWidgetItem, QFileDialog
+from PySide6.QtGui import QAction, QColor
+from PySide6.QtWidgets import QWidget, QMenu, QAbstractItemView, QTableWidgetItem, QFileDialog, QMainWindow
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
@@ -31,12 +32,12 @@ class Window(QWidget, Ui_Form):
         self.icon_only_widget.setHidden(True)
 
         # Hide dropdowns
-        self.students_dropdown.setHidden(True)
-        self.teachers_dropdown.setHidden(True)
-        self.finance_dropdown.setHidden(True)
-        # self.students_2.setChecked(True)
-        # self.teachers_2.setChecked(True)
-        # self.finance_2.setChecked(True)
+        # self.students_dropdown.setHidden(True)
+        # self.teachers_dropdown.setHidden(True)
+        # self.finance_dropdown.setHidden(True)
+        self.students_2.setChecked(True)
+        self.teachers_2.setChecked(True)
+        self.finance_2.setChecked(True)
 
         # Connect buttons to switch to different pages
         self.dashboard_1.clicked.connect(self.switch_to_dashboard_page)
@@ -100,10 +101,8 @@ class Window(QWidget, Ui_Form):
         self.addStudent_btn.clicked.connect(self.open_addStudent_dialog)
 
         # Initialize table settings
-        # self.init_table_settings()
 
         # Load students
-        # self.load_students()
 
         # search
         self.search_student.textEdited.connect(self.search)
@@ -233,7 +232,7 @@ class Window(QWidget, Ui_Form):
         create_students_table_query = f"""
                 create table if not exists students_table(
                 names TEXT,
-                student_id VARCHAR(15) PRIMARY KEY,
+                student_id SERIAL PRIMARY KEY,
                 gender TEXT,
                 class TEXT,
                 birthday TEXT,
@@ -250,52 +249,12 @@ class Window(QWidget, Ui_Form):
         self.database.conn.commit()
         self.database.conn.close()
 
-    def init_table_settings(self):
-        column_names = ["Name", "Id", "Gender", "Class", "birthday", "age", "address", "phone_number", "email"]
-
-        self.studentInfo_table.setColumnCount(len(column_names))
-        self.studentInfo_table.setColumnWidth(0, 200)
-        self.studentInfo_table.setColumnWidth(1, 50)
-        self.studentInfo_table.setColumnWidth(2, 50)
-        self.studentInfo_table.setColumnWidth(3, 50)
-        self.studentInfo_table.setColumnWidth(4, 100)
-        self.studentInfo_table.setColumnWidth(5, 50)
-        self.studentInfo_table.setColumnWidth(6, 100)
-        self.studentInfo_table.setColumnWidth(7, 100)
-
-        self.studentInfo_table.setHorizontalHeaderLabels(column_names)
-
-        self.studentInfo_table.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
-
-    def load_students(self):
-        self.studentInfo_table.clearContents()
-        self.studentInfo_table.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
-        # self.studentInfo_table.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
-
-        # self.init_table_settings()
-
-        # read from db
-        students = self.database.student_read(9)
-
-        print(f"So'rov natijas: {len(students)} ta mijoz")
-        if not students:
-            return
-
-        # qatorlar sonini kirit
-        self.studentInfo_table.setRowCount(len(students))
-
-        # ma'lumotlarni jadvalga kirit
-        for row, student in enumerate(students):
-            for column, item in enumerate(student):
-                self.studentInfo_table.setItem(row, column, QTableWidgetItem(str(item)))
-
     # Open dialog when inserting new student
     def open_addStudent_dialog(self):
 
         # instantiate and show the dialog
         addStudent_dialog = StudentDialog()
         result = addStudent_dialog.exec()  # This will block untill the dialog is closed
-        # self.load_students()
 
         if result == StudentDialog.Accepted:
             # If the dialog was accepted (User clicked add student button)
@@ -435,14 +394,17 @@ class Window(QWidget, Ui_Form):
             self.studentInfo_table.insertRow(row_index)
             for col_index, cell_data in enumerate(row_data):
                 item = QTableWidgetItem(str(cell_data))
+                item.setForeground(QColor('black'))
                 self.studentInfo_table.setItem(row_index, col_index, item)
 
             # create a custom widget with two buttons lined up horizontally for the actions column
             double_button_widget = DoubleButtonWidgetStudents(row_index, row_data, self)
-
+            
             # Set this custom widget with two buttons lined up horizontally for the actions column
             self.studentInfo_table.setCellWidget(row_index, 9, double_button_widget)
             self.studentInfo_table.setRowHeight(row_index, 50)
+            time.sleep(0.01)
+            print('t')
 
     def import_xml_file(self):
         data = XML_import()

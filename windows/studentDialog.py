@@ -22,7 +22,7 @@ class StudentDialog(Ui_StudentsDialog, QDialog):
         database = 'school management'
         host = 'localhost'
         user = 'postgres'
-        password = 'Zshavkatov61@'
+        password = 'Zshavkatov61'
         port = '5432'
 
         self.conn = psycopg2.connect(
@@ -32,21 +32,6 @@ class StudentDialog(Ui_StudentsDialog, QDialog):
             password=password,
             port=port
         )
-
-        # Craete a cursor to execute PostgreSQL
-
-        # corsor = self.conn.cursor()
-        #
-        # # Create the database if it does not exist
-        # corsor.execute(f'Create database if not exists {database}')
-        #
-        # self.conn = psycopg2.connect(
-        #     database=database,
-        #     host=host,
-        #     user=user,
-        #     password=password,
-        #     port=port
-        # )
 
         return self.conn
 

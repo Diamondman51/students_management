@@ -11,7 +11,7 @@ class Database:
         database = 'school management'
         host = 'localhost'
         user = 'postgres'
-        password = 'Zshavkatov61@'
+        password = 'Zshavkatov61'
         port = '5432'
         # print(123)
 
@@ -108,7 +108,7 @@ class Database:
         database = 'school management'
         host = 'localhost'
         user = 'postgres'
-        password = 'Zshavkatov61@'
+        password = 'Zshavkatov61'
         port = '5432'
 
         self.conn = psycopg2.connect(
@@ -120,14 +120,3 @@ class Database:
         )
 
         return self.conn
-
-
-# f = Database.get_instance()
-# print(f.student_read(5))
-# f.student_add()
-# # Database.get_instance()
-# g = Database().get_instance()
-# print(g.student_read(9))
-# if not Database.get_instance():
-#     d = Database()
-#     print(d.student_read(9))
